@@ -4,132 +4,174 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa em Ordem — Organize sua casa e sua vida com leveza</title>
-<meta name="description" content="Kit completo com 17 materiais práticos para organizar a rotina da sua casa e da sua família. Sem promessas perfeitas, sem culpa, sem esgotamento. Por Tâmara Cavalcante.">
+<meta name="description" content="Kit completo com 17 materiais práticos para organizar a rotina da sua casa e da sua família. Por Tâmara Cavalcante — Personal Organizer.">
 <meta property="og:title" content="Casa em Ordem — Organize sua casa e sua vida com leveza">
-<meta property="og:description" content="Kit com 17 materiais práticos para organizar a rotina da sua casa e da sua família. Planos, planners, listas e muito mais.">
+<meta property="og:description" content="Kit com 17 materiais práticos para organizar a rotina da sua casa e da sua família.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://bicalho743.github.io/Casa_em_Ordem/produto-casa-em-ordem.png">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{--verde:#2D6A4F;--verde-m:#52B788;--verde-c:#D8F3DC;--coral:#E07A5F;--coral-c:#FDEBD6;--creme:#FAFAF8;--texto:#3D3D3D;--cinza:#F5F5F3;--laranja:#F4A261;--laranja-c:#FFF3E8}
-  body{font-family:'Nunito',sans-serif;color:var(--texto);background:var(--creme);line-height:1.7}
-  .hero{background:linear-gradient(160deg,#1B4332 0%,#2D6A4F 60%,#40916C 100%);color:white;padding:72px 24px 80px;text-align:center;position:relative;overflow:hidden}
-  .hero::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(255,255,255,0.04);top:-200px;right:-150px}
-  .hero-badge{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:6px 20px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
-  .hero h1{font-size:clamp(32px,5vw,52px);font-weight:900;line-height:1.15;max-width:700px;margin:0 auto 20px}
-  .hero h1 span{color:#95D5B2}
-  .hero p.sub{font-size:clamp(16px,2vw,19px);max-width:560px;margin:0 auto 36px;opacity:.9}
-  .hero-cta{display:inline-block;background:var(--coral);color:white;padding:18px 44px;border-radius:50px;font-size:17px;font-weight:800;text-decoration:none;box-shadow:0 8px 30px rgba(224,122,95,.4);transition:transform .2s}
-  .hero-cta:hover{transform:translateY(-2px)}
-  .hero-quote{margin-top:40px;font-style:italic;font-size:14px;opacity:.7;max-width:460px;margin-left:auto;margin-right:auto}
-  .sec{padding:72px 24px}
-  .inner{max-width:760px;margin:0 auto}
-  .label{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
-  .label.verde{color:var(--verde-m)}
-  h2{font-size:clamp(26px,4vw,38px);font-weight:900;line-height:1.2;margin-bottom:20px}
-  h2 span.verde{color:var(--verde-m)}
-  h2 span.coral{color:var(--coral)}
-  .destaque{background:var(--verde-c);border-left:5px solid var(--verde-m);border-radius:12px;padding:24px 28px;margin:28px 0;font-style:italic;font-size:17px;color:var(--verde);font-weight:600}
-  .lista-x{list-style:none;margin:20px 0}
-  .lista-x li{padding:13px 16px 13px 48px;position:relative;border-bottom:1px solid #f0f0f0;font-size:16px}
-  .lista-x li::before{content:"✗";position:absolute;left:16px;color:var(--coral);font-weight:900;font-size:18px}
-  .bg-cinza{background:var(--cinza)}
-  .bg-branco{background:#fff}
-  .card-autora{background:white;border-radius:20px;padding:40px;box-shadow:0 4px 30px rgba(0,0,0,.06)}
-  .card-autora .ass{font-size:11px;font-weight:800;letter-spacing:2.5px;color:var(--verde-m);text-transform:uppercase;margin-bottom:20px}
-  .card-autora p{font-size:16px;line-height:1.8;margin-bottom:14px}
-  .grid-mod{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:36px}
-  .card-mod{background:var(--creme);border:1px solid #E8E8E8;border-radius:16px;padding:28px 24px;transition:box-shadow .2s}
-  .card-mod:hover{box-shadow:0 8px 24px rgba(0,0,0,.08)}
-  .card-mod .ico{font-size:30px;margin-bottom:12px}
-  .card-mod h3{font-size:16px;font-weight:800;margin-bottom:8px;color:var(--verde)}
-  .card-mod p{font-size:14px;color:#666}
-  .bg-coral-c{background:linear-gradient(135deg,var(--coral-c) 0%,#FFF8F5 100%)}
-  .frase-d{font-style:italic;font-size:19px;color:var(--coral);font-weight:700;border-left:4px solid var(--coral);padding-left:20px;margin:28px 0;line-height:1.5}
-  .grid-ab{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  @media(max-width:600px){.grid-ab{grid-template-columns:1fr}}
-  .col-antes{background:#FFF1EF;border:1px solid #FECDCA;border-radius:16px;padding:28px}
-  .col-dep{background:var(--verde-c);border:1px solid #B7E4C7;border-radius:16px;padding:28px}
-  .col-antes h4{color:var(--coral);font-weight:800;margin-bottom:14px}
-  .col-dep h4{color:var(--verde);font-weight:800;margin-bottom:14px}
-  .col-antes ul,.col-dep ul{list-style:none}
-  .col-antes li,.col-dep li{padding:7px 0 7px 22px;position:relative;font-size:14px;border-bottom:1px solid rgba(0,0,0,.06)}
-  .col-antes li::before{content:"✗";position:absolute;left:0;color:var(--coral);font-weight:900}
-  .col-dep li::before{content:"✓";position:absolute;left:0;color:var(--verde);font-weight:900}
-  .grid-planos{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
-  @media(max-width:640px){.grid-planos{grid-template-columns:1fr}}
-  .card-plano{background:white;border-radius:20px;padding:32px;border:2px solid transparent;transition:all .2s}
-  .card-plano:hover{border-color:var(--verde-m);box-shadow:0 8px 32px rgba(82,183,136,.15)}
-  .tag{display:inline-block;background:var(--verde-m);color:white;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:5px 14px;border-radius:50px;margin-bottom:14px;text-transform:uppercase}
-  .tag.lar{background:var(--laranja)}
-  .card-plano h3{font-size:19px;font-weight:900;margin-bottom:10px}
-  .card-plano > p{font-size:14px;color:#666;margin-bottom:18px}
-  .card-plano ul{list-style:none}
-  .card-plano li{font-size:14px;padding:7px 0 7px 24px;position:relative;border-bottom:1px dashed #EEE}
-  .card-plano li::before{content:"🌿";position:absolute;left:0;font-size:12px}
-  .bg-laranja-c{background:var(--laranja-c);border-top:4px solid var(--laranja)}
-  .label.lar{color:var(--laranja)}
-  .grid-bonus{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px}
-  .card-bonus{background:white;border-radius:14px;padding:24px;border:1px solid rgba(244,162,97,.3);box-shadow:0 2px 12px rgba(0,0,0,.04)}
-  .card-bonus .ico{font-size:28px;margin-bottom:8px}
-  .card-bonus h4{font-size:15px;font-weight:800;margin-bottom:6px}
-  .card-bonus p{font-size:13px;color:#777}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', sans-serif; color: #3D3D3D; background: #fff; line-height: 1.7; font-size: 15px; }
 
-  /* PREÇO */
-  .preco-sec{background:linear-gradient(135deg,#D8F3DC 0%,#FAFAF8 100%);padding:80px 24px}
-  .preco-card{background:white;border-radius:24px;padding:48px 40px;max-width:560px;margin:0 auto;text-align:center;box-shadow:0 12px 48px rgba(45,106,79,.12);border:2px solid var(--verde-m)}
-  .preco-card .de{font-size:16px;color:#999;text-decoration:line-through;margin-bottom:4px}
-  .preco-card .por{font-size:52px;font-weight:900;color:var(--verde);line-height:1}
-  .preco-card .por small{font-size:22px;font-weight:700}
-  .preco-card .parcela{font-size:14px;color:#888;margin:8px 0 24px}
-  .preco-card .cta-compra{display:inline-block;background:var(--coral);color:white;padding:20px 52px;border-radius:50px;font-size:18px;font-weight:800;text-decoration:none;box-shadow:0 10px 36px rgba(224,122,95,.45);transition:transform .2s}
-  .preco-card .cta-compra:hover{transform:translateY(-3px)}
-  .preco-card .garantia{margin-top:20px;font-size:13px;color:#888}
-  .preco-itens{list-style:none;text-align:left;margin:24px 0;padding:0}
-  .preco-itens li{padding:8px 0 8px 28px;position:relative;font-size:14px;border-bottom:1px solid #F0F0F0}
-  .preco-itens li::before{content:"✓";position:absolute;left:0;color:var(--verde-m);font-weight:900;font-size:16px}
+  /* ======== DESIGN TOKENS (idêntico aos PDFs) ======== */
+  .cover { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%); color: white; border-radius: 20px; padding: 60px 40px; text-align: center; }
+  .cover .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 6px 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+  .cover h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+  .cover h1 span { color: #95D5B2; }
+  .cover p { font-size: 16px; opacity: 0.9; max-width: 500px; margin: 0 auto 20px; }
+  .cover .author { font-size: 13px; opacity: 0.7; margin-top: 28px; }
 
-  /* FAQ */
-  .faq{max-width:660px;margin:0 auto}
-  .faq-item{background:white;border-radius:14px;margin-bottom:12px;border:1px solid #E8E8E8;overflow:hidden}
-  .faq-q{padding:18px 24px;font-size:15px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
-  .faq-q:hover{background:#FAFAF8}
-  .faq-q .arrow{transition:transform .3s;font-size:18px;color:#BBB}
-  .faq-item.open .faq-q .arrow{transform:rotate(180deg)}
-  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 24px}
-  .faq-item.open .faq-a{max-height:300px;padding:0 24px 18px}
-  .faq-a p{font-size:14px;color:#666;margin:0}
+  .section-title { color: #2D6A4F; font-size: clamp(20px, 3.5vw, 26px); font-weight: 900; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 3px solid #D8F3DC; }
+  .subtitle { color: #52B788; font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .subtitle.coral { color: #E07A5F; }
 
-  .hero-final{background:linear-gradient(160deg,#1B4332 0%,#2D6A4F 100%);color:white;padding:80px 24px;text-align:center}
-  .hero-final h2{font-size:clamp(28px,4.5vw,46px);font-weight:900;margin-bottom:16px}
-  .hero-final h2 span{color:#95D5B2}
-  .hero-final p{font-size:17px;opacity:.9;max-width:520px;margin:0 auto 32px}
-  .btn-final{display:inline-block;background:var(--coral);color:white;padding:20px 52px;border-radius:50px;font-size:18px;font-weight:800;text-decoration:none;box-shadow:0 10px 36px rgba(224,122,95,.45);transition:transform .2s}
-  .btn-final:hover{transform:translateY(-3px)}
-  .garantia-final{margin-top:22px;font-size:14px;opacity:.7}
-  .hero-img{max-width:520px;width:90%;margin:36px auto 0;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);display:block}
-  footer{background:#111;color:#888;text-align:center;padding:26px 24px;font-size:13px}
+  h3 { font-size: 17px; font-weight: 800; color: #2D6A4F; margin: 20px 0 10px; }
+  p { margin-bottom: 12px; }
+
+  .highlight { background: #D8F3DC; border-left: 4px solid #52B788; border-radius: 10px; padding: 16px 20px; margin: 18px 0; font-weight: 600; color: #2D6A4F; }
+  .tip { background: #FFF3E8; border-left: 4px solid #F4A261; border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
+  .tip strong { color: #E07A5F; }
+
+  .check-list { list-style: none; margin: 12px 0; }
+  .check-list li { padding: 10px 0 10px 32px; position: relative; border-bottom: 1px solid #F0F0F0; font-size: 15px; }
+  .check-list li::before { content: "✓"; position: absolute; left: 0; color: #52B788; font-size: 18px; font-weight: 900; }
+  .check-list.x li::before { content: "✗"; color: #E07A5F; }
+
+  .step-card { background: #FAFAF8; border: 1px solid #E8E8E8; border-radius: 14px; padding: 20px; margin: 14px 0; }
+  .step-num { display: inline-block; background: #52B788; color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 900; font-size: 13px; margin-right: 10px; }
+
+  .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #D8F3DC; font-size: 12px; color: #999; }
+
+  /* ======== LAYOUT ======== */
+  .page { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .sec { padding: 48px 0; }
+  .sec-alt { background: #FAFAF8; padding: 48px 24px; }
+
+  /* Hero (cover estendido full-width) */
+  .hero-wrap { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%); color: white; padding: 64px 24px 48px; text-align: center; }
+  .hero-wrap .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 6px 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+  .hero-wrap h1 { font-size: clamp(30px, 5.5vw, 48px); font-weight: 900; line-height: 1.15; margin-bottom: 16px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .hero-wrap h1 span { color: #95D5B2; }
+  .hero-wrap p.sub { font-size: clamp(15px, 2vw, 18px); max-width: 540px; margin: 0 auto 32px; opacity: .9; }
+  .hero-wrap .cta { display: inline-block; background: #E07A5F; color: white; padding: 16px 40px; border-radius: 50px; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 28px rgba(224,122,95,.4); transition: transform .2s; }
+  .hero-wrap .cta:hover { transform: translateY(-2px); }
+  .hero-wrap .hero-img { max-width: 480px; width: 90%; margin: 32px auto 0; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.25); display: block; }
+  .hero-wrap .quote { font-family: 'Lora', serif; font-style: italic; font-size: 14px; opacity: .65; margin-top: 28px; max-width: 460px; margin-left: auto; margin-right: auto; }
+
+  /* Cover sections (mini covers como nos PDFs) */
+  .mini-cover { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%); color: white; border-radius: 20px; padding: 36px 32px; text-align: center; margin-bottom: 28px; }
+  .mini-cover.coral { background: linear-gradient(135deg, #C0392B 0%, #E74C3C 50%, #F1948A 100%); }
+  .mini-cover.laranja { background: linear-gradient(135deg, #E67E22 0%, #F39C12 50%, #F9E79F 100%); }
+  .mini-cover.roxo { background: linear-gradient(135deg, #6C3483 0%, #A569BD 50%, #D2B4DE 100%); }
+  .mini-cover.azul { background: linear-gradient(135deg, #2E86C1 0%, #5DADE2 50%, #AED6F1 100%); }
+  .mini-cover .badge { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3); border-radius: 50px; padding: 5px 16px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+  .mini-cover h2 { font-size: clamp(22px, 4vw, 32px); font-weight: 900; line-height: 1.2; margin-bottom: 8px; }
+  .mini-cover h2 span { color: rgba(255,255,255,.7); }
+  .mini-cover p { font-size: 14px; opacity: .85; max-width: 440px; margin: 0 auto; }
+
+  /* Autora card (como step-card dos PDFs) */
+  .autora-card { background: #FAFAF8; border: 1px solid #E8E8E8; border-radius: 14px; padding: 28px; margin: 20px 0; }
+  .autora-card .ass { color: #52B788; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+  .autora-card p { font-size: 15px; line-height: 1.8; }
+
+  /* Grid de módulos (como grid3 dos PDFs) */
+  .grid-mod { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+  .card-mod { background: #FAFAF8; border: 1px solid #E8E8E8; border-radius: 14px; padding: 22px; }
+  .card-mod .ico { font-size: 28px; margin-bottom: 10px; }
+  .card-mod h3 { font-size: 15px; margin: 0 0 6px; }
+  .card-mod p { font-size: 13px; color: #777; margin: 0; }
+
+  /* Antes/Depois (como grid3 keep/toss dos PDFs) */
+  .grid-ab { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .col-antes { background: #FDEDEC; border: 2px solid #F1948A; border-radius: 14px; padding: 22px; }
+  .col-dep { background: #D8F3DC; border: 2px solid #B7E4C7; border-radius: 14px; padding: 22px; }
+  .col-antes h4 { color: #C0392B; font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+  .col-dep h4 { color: #2D6A4F; font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+  .col-antes ul, .col-dep ul { list-style: none; }
+  .col-antes li, .col-dep li { padding: 7px 0 7px 24px; position: relative; font-size: 14px; border-bottom: 1px solid rgba(0,0,0,.06); }
+  .col-antes li::before { content: "✗"; position: absolute; left: 0; color: #E74C3C; font-weight: 900; }
+  .col-dep li::before { content: "✓"; position: absolute; left: 0; color: #2D6A4F; font-weight: 900; }
+  @media(max-width:600px) { .grid-ab { grid-template-columns: 1fr; } }
+
+  /* Planos A/B (como room cards dos PDFs) */
+  .grid-planos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .card-plano { background: #FAFAF8; border: 2px solid #E8E8E8; border-radius: 14px; padding: 24px; }
+  .card-plano:hover { border-color: #52B788; }
+  .tag-plano { display: inline-block; background: #2D6A4F; color: white; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 50px; text-transform: uppercase; margin-bottom: 10px; }
+  .tag-plano.b { background: #E67E22; }
+  .card-plano h3 { margin-top: 0; }
+  .card-plano ul { list-style: none; margin: 10px 0 0; }
+  .card-plano li { font-size: 13px; padding: 6px 0 6px 22px; position: relative; border-bottom: 1px dashed #E8E8E8; }
+  .card-plano li::before { content: "🌿"; position: absolute; left: 0; font-size: 11px; }
+  @media(max-width:640px) { .grid-planos { grid-template-columns: 1fr; } }
+
+  /* Bônus (como tip boxes dos PDFs) */
+  .grid-bonus { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 20px 0; }
+  .card-bonus { background: #FFF3E8; border: 1px solid rgba(244,162,97,.3); border-left: 4px solid #F4A261; border-radius: 10px; padding: 18px; }
+  .card-bonus .ico { font-size: 24px; margin-bottom: 6px; }
+  .card-bonus h4 { font-size: 14px; font-weight: 800; margin-bottom: 4px; color: #E07A5F; }
+  .card-bonus p { font-size: 12px; color: #777; margin: 0; }
+
+  /* Preço (como cover section) */
+  .preco-wrap { background: #D8F3DC; padding: 48px 24px; }
+  .preco-card { background: white; border-radius: 20px; padding: 40px 32px; max-width: 520px; margin: 0 auto; text-align: center; border: 2px solid #52B788; }
+  .preco-card .de { font-size: 15px; color: #999; text-decoration: line-through; }
+  .preco-card .por { font-size: 48px; font-weight: 900; color: #2D6A4F; line-height: 1; }
+  .preco-card .por small { font-size: 20px; font-weight: 700; }
+  .preco-card .parcela { font-size: 13px; color: #888; margin: 6px 0 20px; }
+  .preco-card .cta-compra { display: inline-block; background: #E07A5F; color: white; padding: 18px 48px; border-radius: 50px; font-size: 17px; font-weight: 800; text-decoration: none; box-shadow: 0 10px 32px rgba(224,122,95,.4); transition: transform .2s; }
+  .preco-card .cta-compra:hover { transform: translateY(-3px); }
+  .preco-card .garantia { margin-top: 16px; font-size: 12px; color: #888; }
+  .preco-itens { list-style: none; text-align: left; margin: 20px 0; }
+  .preco-itens li { padding: 8px 0 8px 28px; position: relative; font-size: 14px; border-bottom: 1px solid #F0F0F0; }
+  .preco-itens li::before { content: "✓"; position: absolute; left: 0; color: #52B788; font-weight: 900; font-size: 16px; }
+
+  /* FAQ (como step-cards) */
+  .faq-item { background: #FAFAF8; border: 1px solid #E8E8E8; border-radius: 14px; margin-bottom: 10px; overflow: hidden; }
+  .faq-q { padding: 16px 20px; font-size: 15px; font-weight: 800; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .faq-q:hover { background: #F0F0F0; }
+  .faq-q .arrow { transition: transform .3s; font-size: 16px; color: #BBB; }
+  .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s; padding: 0 20px; }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 20px 16px; }
+  .faq-a p { font-size: 14px; color: #666; margin: 0; }
+
+  /* CTA final (cover style) */
+  .cta-final { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%); color: white; padding: 64px 24px; text-align: center; }
+  .cta-final h2 { font-size: clamp(24px, 4vw, 38px); font-weight: 900; margin-bottom: 12px; }
+  .cta-final h2 span { color: #95D5B2; }
+  .cta-final p { font-size: 16px; opacity: .85; max-width: 480px; margin: 0 auto 28px; }
+  .cta-final .cta { display: inline-block; background: #E07A5F; color: white; padding: 18px 48px; border-radius: 50px; font-size: 17px; font-weight: 800; text-decoration: none; box-shadow: 0 10px 32px rgba(224,122,95,.4); transition: transform .2s; }
+  .cta-final .cta:hover { transform: translateY(-3px); }
+  .cta-final .sub { margin-top: 18px; font-size: 13px; opacity: .6; }
+
+  /* Footer (idêntico aos PDFs) */
+  footer { background: #1B4332; color: rgba(255,255,255,.5); text-align: center; padding: 24px; font-size: 12px; }
 </style>
 </head>
 <body>
 
-<section class="hero">
-  <span class="hero-badge">✨ Kit Completo de Organização</span>
-  <h1>Organize sua casa <span>sem abrir mão</span><br>da sua qualidade de vida</h1>
+<!-- ═══════════ HERO (cover style) ═══════════ -->
+<div class="hero-wrap">
+  <div class="badge">✨ Kit Completo de Organização</div>
+  <h1>Organize sua casa <span>sem abrir mão</span> da sua qualidade de vida</h1>
   <p class="sub">Um kit prático, honesto e gentil para organizar o dia a dia da sua família — sem promessas perfeitas, sem culpa, sem esgotamento.</p>
-  <a href="#preco" class="hero-cta">Quero organizar minha casa →</a>
+  <a href="#preco" class="cta">Quero organizar minha casa →</a>
   <img src="produto-casa-em-ordem.png" alt="Kit Casa em Ordem — 17 materiais de organização doméstica" class="hero-img">
-  <p class="hero-quote">"A rotina mais poderosa não é a mais intensa — é a que você consegue realmente manter."</p>
-</section>
+  <p class="quote">"A rotina mais poderosa não é a mais intensa — é a que você consegue realmente manter."</p>
+</div>
 
-<section class="sec bg-branco">
-  <div class="inner">
-    <p class="label">📌 Você se reconhece aqui?</p>
-    <h2>Você não é desorganizada.<br>Você está <span class="coral">sobrecarregada.</span></h2>
-    <p style="font-size:16px;color:#555;margin-bottom:16px">Existe uma diferença enorme entre ser desorganizada e estar esgotada tentando dar conta de um sistema que nunca foi feito para a sua realidade. A verdade é que ninguém te ensinou a gerir uma casa, uma família e ainda ter energia para cuidar de si.</p>
-    <div class="destaque">A casa organizada não é o destino. É o que sobra quando você para de se cobrar pelo impossível e começa a construir um ritmo que respeita os seus limites reais.</div>
-    <ul class="lista-x">
+<!-- ═══════════ DOR ═══════════ -->
+<div class="page">
+  <div class="sec">
+    <p class="subtitle coral">📌 Você se reconhece aqui?</p>
+    <h2 class="section-title">Você não é desorganizada. Você está sobrecarregada.</h2>
+    <p>Existe uma diferença enorme entre ser desorganizada e estar esgotada tentando dar conta de um sistema que nunca foi feito para a sua realidade.</p>
+
+    <div class="highlight">A casa organizada não é o destino. É o que sobra quando você para de se cobrar pelo impossível e começa a construir um ritmo que respeita os seus limites reais.</div>
+
+    <ul class="check-list x">
       <li>Você limpa de manhã e à tarde já parece que não fez nada</li>
       <li>Acaba a semana sem ter feito a lista do mercado</li>
       <li>Sente culpa quando a casa não está "perfeita"</li>
@@ -138,59 +180,73 @@
       <li>Já tentou vários métodos e nenhum durou mais de duas semanas</li>
     </ul>
   </div>
-</section>
+</div>
 
-<section class="sec bg-cinza">
-  <div class="inner">
-    <div class="card-autora">
+<!-- ═══════════ AUTORA ═══════════ -->
+<div class="sec-alt">
+  <div class="page">
+    <div class="autora-card">
       <div class="ass">✍️ Da Tâmara pra você</div>
-      <p>Eu sei exatamente o que você está sentindo. Por anos, acreditei que minha vida seria melhor quando minha casa finalmente ficasse organizada de uma vez por todas. Eu comprava caixinhas, assistia vídeos de organização, fazia listas intermináveis — e no dia seguinte estava tudo de volta ao caos.</p>
-      <p>Até que percebi: o problema nunca foi a minha casa. Era a forma como eu estava tentando cuidar dela — tentando encaixar um padrão que não era para a minha realidade, a realidade de quem trabalha, cuida da família, e ainda precisa ter energia para viver.</p>
+      <p>Eu sei exatamente o que você está sentindo. Por anos, acreditei que minha vida seria melhor quando minha casa finalmente ficasse organizada. Eu comprava caixinhas, assistia vídeos, fazia listas intermináveis — e no dia seguinte estava tudo de volta ao caos.</p>
+      <p>Até que percebi: o problema nunca foi a minha casa. Era a forma como eu estava tentando cuidar dela — tentando encaixar um padrão que não cabia na minha realidade.</p>
       <p>Foi dessa vivência que nasceu o <strong>Casa em Ordem</strong>. Não é um método para casas de revista. É para a <em>sua</em> casa, com a <em>sua</em> vida.</p>
-      <p style="font-weight:800;color:var(--verde)">— Tâmara Cavalcante</p>
+      <p style="font-weight:800;color:#2D6A4F;margin:0">— Tâmara Cavalcante, Personal Organizer</p>
     </div>
   </div>
-</section>
+</div>
 
-<section class="sec bg-branco" id="modulos">
-  <div class="inner" style="text-align:center">
-    <p class="label verde">📦 O que você vai encontrar</p>
-    <h2>17 materiais práticos para criar<br>uma rotina que <span class="verde">realmente funciona</span></h2>
-    <p style="font-size:17px;color:#666;max-width:560px;margin:0 auto">Conteúdo organizado em categorias que você aplica no seu ritmo, com o seu tempo.</p>
+<!-- ═══════════ MÓDULOS ═══════════ -->
+<div class="page">
+  <div class="sec">
+    <div class="mini-cover">
+      <div class="badge">📦 O Kit Completo</div>
+      <h2>17 materiais práticos para criar uma rotina que <span>realmente funciona</span></h2>
+      <p>Conteúdo organizado em categorias que você aplica no seu ritmo.</p>
+    </div>
+
     <div class="grid-mod">
-      <div class="card-mod"><div class="ico">🏠</div><h3>Rotina Diária Sustentável</h3><p>Dois planos completos (A e B) para montar uma rotina de limpeza leve que se encaixa no seu dia.</p></div>
-      <div class="card-mod"><div class="ico">🥦</div><h3>Gestão de Alimentação</h3><p>Cardápio semanal, lista de compras inteligente, controle de despensa e freezer sem desperdício.</p></div>
-      <div class="card-mod"><div class="ico">📅</div><h3>Agendas e Planners</h3><p>Agenda diária, semanal e mensal com rastreador de hábitos e espaço para metas e revisão.</p></div>
-      <div class="card-mod"><div class="ico">🧹</div><h3>Limpeza Organizada</h3><p>Cards de limpeza recortáveis, planejamento por cômodo e o roteiro de emergência de 15 minutos.</p></div>
-      <div class="card-mod"><div class="ico">🎯</div><h3>Desafio dos 30 Dias</h3><p>Uma tarefa por dia durante 30 dias para transformar sua casa e consolidar novos hábitos.</p></div>
-      <div class="card-mod"><div class="ico">🐾</div><h3>Rotina do Pet</h3><p>Controle de alimentação, vacinas, banhos, passeios e gastos do seu companheiro peludo.</p></div>
+      <div class="card-mod"><div class="ico">🏠</div><h3>Rotina Diária</h3><p>Dois planos completos (A e B) para montar uma rotina leve que se encaixa no seu dia.</p></div>
+      <div class="card-mod"><div class="ico">🥦</div><h3>Alimentação</h3><p>Cardápio semanal, lista de compras, controle de despensa e freezer.</p></div>
+      <div class="card-mod"><div class="ico">📅</div><h3>Agendas</h3><p>Agenda diária, semanal e mensal com rastreador de hábitos.</p></div>
+      <div class="card-mod"><div class="ico">🧹</div><h3>Limpeza</h3><p>Cards recortáveis, planejamento por cômodo e roteiro de emergência.</p></div>
+      <div class="card-mod"><div class="ico">🎯</div><h3>Desafio 30 Dias</h3><p>Uma tarefa por dia durante 30 dias para transformar hábitos.</p></div>
+      <div class="card-mod"><div class="ico">🐾</div><h3>Rotina do Pet</h3><p>Controle de alimentação, vacinas, banhos e gastos do pet.</p></div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="sec bg-coral-c">
-  <div class="inner">
-    <p class="label">⏱️ A cena que você conhece</p>
-    <h2>São 19h. Você chegou do trabalho.<br>A casa está bagunçada. A família tem fome.</h2>
-    <p style="font-size:16px;margin-bottom:16px">Você olha em volta e não sabe por onde começar. O jantar ainda não está pronto. A roupa do dia seguinte não está separada. E ainda tem aquela pilha de roupas esperando para ser dobrada desde quinta-feira passada.</p>
-    <p style="font-size:16px;margin-bottom:16px">Você não está falhando. Você está trabalhando com um sistema que nunca foi projetado para te ajudar.</p>
-    <div class="frase-d">"Você não precisa fazer tudo. Você precisa fazer as coisas certas, no momento certo, do jeito que funciona pra você."</div>
-    <p style="font-size:16px">O Casa em Ordem não promete uma casa perfeita. Promete uma casa <em>em dia</em> — e uma família que consegue respirar no meio do caos.</p>
+<!-- ═══════════ CENA DA DOR ═══════════ -->
+<div class="sec-alt">
+  <div class="page">
+    <div class="mini-cover coral">
+      <div class="badge">⏱️ A cena que você conhece</div>
+      <h2>São 19h. Você chegou do trabalho. A casa está bagunçada.</h2>
+      <p>O jantar não está pronto. A roupa do dia seguinte não está separada. E aquela pilha de roupas esperando desde quinta.</p>
+    </div>
+
+    <p>Você não está falhando. Você está trabalhando com um sistema que nunca foi projetado para te ajudar.</p>
+
+    <div class="tip">
+      <strong>💡 Você não precisa fazer tudo.</strong> Você precisa fazer as coisas certas, no momento certo, do jeito que funciona pra você.
+    </div>
   </div>
-</section>
+</div>
 
-<section class="sec bg-branco">
-  <div class="inner">
-    <h2>A transformação que você vai sentir<br><span class="verde">no seu dia a dia</span></h2>
+<!-- ═══════════ ANTES vs DEPOIS ═══════════ -->
+<div class="page">
+  <div class="sec">
+    <p class="subtitle">🔄 Transformação</p>
+    <h2 class="section-title">A mudança que você vai sentir no seu dia a dia</h2>
+
     <div class="grid-ab">
       <div class="col-antes"><h4>❌ Antes</h4><ul>
         <li>Domingo inteiro de faxinão pesado</li>
         <li>Geladeira vazia na hora do jantar</li>
         <li>Sem saber o que tem na despensa</li>
-        <li>Roupa acumulada por dias a fio</li>
+        <li>Roupa acumulada por dias</li>
         <li>Culpa constante por não dar conta</li>
         <li>Ninguém na família ajuda</li>
-        <li>Fim de semana consumido em tarefas</li>
+        <li>Fim de semana consumido</li>
       </ul></div>
       <div class="col-dep"><h4>✅ Depois</h4><ul>
         <li>15 minutos por dia no lugar de horas</li>
@@ -199,69 +255,75 @@
         <li>Fluxo de roupas sem acúmulo</li>
         <li>Rotina que cabe na sua realidade</li>
         <li>Família com tarefas simples e claras</li>
-        <li>Fim de semana para descanso de verdade</li>
+        <li>Fim de semana para descanso real</li>
       </ul></div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="sec bg-cinza">
-  <div class="inner" style="text-align:center">
-    <p class="label verde">⚙️ Escolha o seu ritmo</p>
-    <h2>Dois planos para perfis diferentes</h2>
-    <p style="font-size:16px;color:#666;max-width:520px;margin:0 auto">Não existe um jeito certo de organizar. Existe o jeito que funciona pra você.</p>
+<!-- ═══════════ PLANOS A e B ═══════════ -->
+<div class="sec-alt">
+  <div class="page">
+    <div class="mini-cover azul">
+      <div class="badge">⚙️ Escolha seu ritmo</div>
+      <h2>Dois planos para perfis diferentes</h2>
+      <p>Não existe um jeito certo. Existe o jeito que funciona pra você.</p>
+    </div>
+
     <div class="grid-planos">
-      <div class="card-plano" style="text-align:left">
-        <span class="tag">Plano A</span>
+      <div class="card-plano">
+        <span class="tag-plano">Plano A</span>
         <h3>Quem Trabalha Fora</h3>
-        <p>Para quem tem tempo concentrado e precisa de uma rotina enxuta nos dias úteis, com revisão leve no fim de semana.</p>
+        <p style="font-size:14px;color:#666">Rotina enxuta com blocos concentrados de manhã e à noite.</p>
         <ul>
           <li>Tarefas rápidas pela manhã e à noite</li>
-          <li>Um dia de limpeza mais completa na semana</li>
-          <li>Lista de compras semanal automatizada</li>
-          <li>Planejamento de refeições da semana</li>
-          <li>Gestão da agenda familiar centralizada</li>
+          <li>Um dia de limpeza mais completa</li>
+          <li>Lista de compras semanal</li>
+          <li>Planejamento de refeições</li>
+          <li>Gestão da agenda familiar</li>
         </ul>
       </div>
-      <div class="card-plano" style="text-align:left">
-        <span class="tag lar">Plano B</span>
-        <h3>Quem fica em Casa ou faz Escala</h3>
-        <p>Para quem tem pausas ao longo do dia e pode distribuir as tarefas de forma mais fluida sem acumular.</p>
+      <div class="card-plano">
+        <span class="tag-plano b">Plano B</span>
+        <h3>Quem fica em Casa</h3>
+        <p style="font-size:14px;color:#666">Micro-tarefas distribuídas ao longo do dia sem acumular.</p>
         <ul>
-          <li>Manutenção por ambiente ao longo da semana</li>
-          <li>Revisão semanal e organização do próximo período</li>
-          <li>Controle de freezer e estoque doméstico</li>
-          <li>Tarefas mensais e sazonais programadas</li>
-          <li>Envolvimento das crianças na rotina da casa</li>
+          <li>Manutenção por ambiente na semana</li>
+          <li>Revisão semanal do próximo período</li>
+          <li>Controle de freezer e estoque</li>
+          <li>Tarefas mensais e sazonais</li>
+          <li>Envolvimento das crianças</li>
         </ul>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="sec bg-laranja-c">
-  <div class="inner">
-    <p class="label lar">🎁 Bônus inclusos</p>
-    <h2>Ferramentas para usar hoje mesmo</h2>
+<!-- ═══════════ BÔNUS ═══════════ -->
+<div class="page">
+  <div class="sec">
+    <p class="subtitle coral">🎁 Bônus inclusos</p>
+    <h2 class="section-title">Ferramentas para usar hoje mesmo</h2>
+
     <div class="grid-bonus">
-      <div class="card-bonus"><div class="ico">📋</div><h4>Planejador Semanal</h4><p>Template imprimível para organizar tarefas, refeições e compromissos da semana.</p></div>
-      <div class="card-bonus"><div class="ico">🛒</div><h4>Lista de Compras Inteligente</h4><p>Modelo por categorias para nunca esquecer nada e evitar compras duplicadas.</p></div>
-      <div class="card-bonus"><div class="ico">❄️</div><h4>Controle do Freezer</h4><p>Tabela para saber o que tem congelado, em que quantidade e com qual validade.</p></div>
-      <div class="card-bonus"><div class="ico">🏷️</div><h4>Desafio dos 30 Dias</h4><p>Uma tarefa por dia durante 30 dias para transformar seus hábitos domésticos.</p></div>
-      <div class="card-bonus"><div class="ico">🐾</div><h4>Rotina do Pet</h4><p>Controle completo de alimentação, vacinas, banhos e passeios do seu bichinho.</p></div>
-      <div class="card-bonus"><div class="ico">📱</div><h4>Acesso Imediato</h4><p>Todo o conteúdo disponível em formato digital para baixar e imprimir quando quiser.</p></div>
+      <div class="card-bonus"><div class="ico">📋</div><h4>Planejador Semanal</h4><p>Template para organizar tarefas, refeições e compromissos.</p></div>
+      <div class="card-bonus"><div class="ico">🛒</div><h4>Lista de Compras</h4><p>Modelo por categorias para nunca esquecer nada.</p></div>
+      <div class="card-bonus"><div class="ico">❄️</div><h4>Controle do Freezer</h4><p>Tabela de itens congelados com validade.</p></div>
+      <div class="card-bonus"><div class="ico">🏷️</div><h4>Desafio 30 Dias</h4><p>Uma tarefa por dia para transformar hábitos.</p></div>
+      <div class="card-bonus"><div class="ico">🐾</div><h4>Rotina do Pet</h4><p>Controle completo do seu bichinho.</p></div>
+      <div class="card-bonus"><div class="ico">📱</div><h4>Acesso Imediato</h4><p>Baixe e imprima quando quiser.</p></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- SEÇÃO DE PREÇO -->
-<section class="preco-sec" id="preco">
-  <div class="inner" style="text-align:center">
-    <p class="label verde">💚 Oferta Especial</p>
-    <h2>Tudo isso por um valor<br><span class="verde">que cabe no seu bolso</span></h2>
+<!-- ═══════════ PREÇO ═══════════ -->
+<div class="preco-wrap" id="preco">
+  <div class="page" style="text-align:center">
+    <p class="subtitle">💚 Oferta Especial</p>
+    <h2 class="section-title" style="text-align:center;border:none">Tudo isso por um valor que cabe no seu bolso</h2>
   </div>
   <div class="preco-card">
-    <p style="font-size:13px;font-weight:800;color:var(--verde-m);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">Kit Completo Casa em Ordem</p>
+    <p style="font-size:12px;font-weight:800;color:#52B788;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px">Kit Completo Casa em Ordem</p>
     <p class="de">De R$ 97,00</p>
     <p class="por"><small>R$</small> 49<small>,90</small></p>
     <p class="parcela">ou em até 6x de R$ 8,87 no cartão</p>
@@ -275,54 +337,56 @@
       <li>Acesso imediato após a compra</li>
       <li>Atualizações futuras incluídas</li>
     </ul>
-    <a href="https://pay.kiwify.com.br/JuDImie" class="cta-compra" id="btnCompra">Quero minha casa organizada →</a>
-    <p class="garantia">🔒 Pagamento seguro via Kiwify · Acesso imediato · Satisfação garantida</p>
+    <a href="https://pay.kiwify.com.br/JuDImie" class="cta-compra">Quero minha casa organizada →</a>
+    <p class="garantia">🔒 Pagamento seguro via Kiwify · Acesso imediato</p>
   </div>
-</section>
+</div>
 
-<!-- FAQ -->
-<section class="sec bg-branco">
-  <div class="inner">
-    <p class="label" style="text-align:center">❓ Perguntas Frequentes</p>
-    <h2 style="text-align:center">Tire suas dúvidas</h2>
-    <div class="faq">
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Como recebo os materiais? <span class="arrow">▼</span></div>
-        <div class="faq-a"><p>Assim que o pagamento for confirmado, você será redirecionada automaticamente para uma página exclusiva onde poderá baixar todos os 17 PDFs. Também receberá o link por e-mail.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Os materiais são digitais ou físicos? <span class="arrow">▼</span></div>
-        <div class="faq-a"><p>São 100% digitais em formato PDF. Você pode baixar no celular, tablet ou computador e imprimir quantas vezes quiser na sua casa.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Funciona para qualquer tipo de casa? <span class="arrow">▼</span></div>
-        <div class="faq-a"><p>Sim! Os materiais foram pensados para casas e apartamentos de todos os tamanhos. As rotinas são adaptáveis à sua realidade — por isso existem dois planos diferentes (A e B).</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Posso parcelar o pagamento? <span class="arrow">▼</span></div>
-        <div class="faq-a"><p>Sim! Você pode pagar à vista no Pix ou em até 6x no cartão de crédito pela plataforma Kiwify, que é 100% segura.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">E se eu não gostar? <span class="arrow">▼</span></div>
-        <div class="faq-a"><p>Estamos tão confiantes no material que oferecemos satisfação garantida. Se você não ficar satisfeita, entre em contato que resolveremos juntos.</p></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Posso usar no celular? <span class="arrow">▼</span></div>
-        <div class="faq-a"><p>Sim! Os PDFs podem ser visualizados em qualquer dispositivo. Mas recomendamos imprimir os planners e colar em locais estratégicos da casa para melhor aproveitamento.</p></div>
-      </div>
+<!-- ═══════════ FAQ ═══════════ -->
+<div class="page">
+  <div class="sec">
+    <p class="subtitle" style="text-align:center">❓ Perguntas Frequentes</p>
+    <h2 class="section-title" style="text-align:center;border:none">Tire suas dúvidas</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Como recebo os materiais? <span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Assim que o pagamento for confirmado, você será redirecionada para uma página exclusiva onde poderá baixar todos os 17 PDFs. Também receberá o link por e-mail.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Os materiais são digitais ou físicos? <span class="arrow">▼</span></div>
+      <div class="faq-a"><p>São 100% digitais em formato PDF. Você pode baixar no celular, tablet ou computador e imprimir quantas vezes quiser.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Funciona para qualquer tipo de casa? <span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Sim! Os materiais servem para casas e apartamentos de todos os tamanhos. As rotinas são adaptáveis — por isso existem dois planos diferentes (A e B).</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Posso parcelar? <span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Sim! À vista no Pix ou em até 6x no cartão de crédito pela plataforma Kiwify, que é 100% segura.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">E se eu não gostar? <span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Oferecemos satisfação garantida. Se você não ficar satisfeita, entre em contato que resolveremos juntos.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Posso ver no celular? <span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Sim! Mas recomendamos imprimir os planners e colar em locais estratégicos da casa para melhor aproveitamento.</p></div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="hero-final">
+<!-- ═══════════ CTA FINAL ═══════════ -->
+<div class="cta-final">
   <h2>Você merece uma rotina que <span>trabalhe por você</span></h2>
   <p>Chega de se cobrar pelo impossível. Comece hoje a construir uma casa em dia — e uma vida mais leve.</p>
-  <a href="#preco" class="btn-final">Quero começar agora →</a>
-  <p class="garantia-final">🔒 Acesso imediato · 17 materiais em PDF · Satisfação garantida</p>
-</section>
+  <a href="https://pay.kiwify.com.br/JuDImie" class="cta">Quero começar agora →</a>
+  <p class="sub">🔒 Acesso imediato · 17 materiais em PDF · Satisfação garantida</p>
+</div>
 
+<!-- ═══════════ FOOTER (como nos PDFs) ═══════════ -->
 <footer>
-  <p>© 2026 Casa em Ordem · Por Tâmara Cavalcante · Todos os direitos reservados</p>
+  <p>🏠 Casa em Ordem · Por Tâmara Cavalcante · 2026</p>
+  <p>Material exclusivo. Todos os direitos reservados.</p>
 </footer>
 
 </body>
