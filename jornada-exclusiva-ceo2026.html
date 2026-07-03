@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa em Ordem — Sua Área Exclusiva</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--v:#2D6A4F;--vm:#52B788;--vc:#D8F3DC;--vd:#1B4332;--coral:#E07A5F;--creme:#FAFAF8;--texto:#3D3D3D;--cinza:#F5F5F3;--sb-w:280px}
+  body{font-family:'Nunito',sans-serif;color:var(--texto);background:var(--creme);min-height:100vh}
+
+  /* SIDEBAR */
+  .sidebar{width:var(--sb-w);background:linear-gradient(180deg,#0D2818 0%,var(--vd) 40%,#1B4332 100%);color:white;position:fixed;top:0;left:0;height:100vh;overflow-y:auto;z-index:100;padding-bottom:40px;transition:transform .3s}
+  .sb-header{padding:28px 22px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .sb-logo{font-size:20px;font-weight:900;display:flex;align-items:center;gap:8px}
+  .sb-logo span{color:#95D5B2}
+  .sb-subtitle{font-size:11px;opacity:.5;margin-top:4px}
+  .sb-progress{margin:18px 22px 0;background:rgba(255,255,255,.1);border-radius:50px;height:8px;overflow:hidden}
+  .sb-progress-bar{height:100%;background:linear-gradient(90deg,#52B788,#95D5B2);border-radius:50px;transition:width .5s;width:0%}
+  .sb-progress-text{font-size:10px;opacity:.5;margin:6px 22px 0}
+  .sb-section{padding:18px 22px 6px;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+  .sb-item{display:flex;align-items:center;gap:10px;padding:11px 22px;font-size:13px;font-weight:700;color:rgba(255,255,255,.7);cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:all .15s;border-left:3px solid transparent}
+  .sb-item:hover{background:rgba(255,255,255,.06);color:white}
+  .sb-item.active{background:rgba(255,255,255,.1);color:white;border-left-color:#95D5B2}
+  .sb-item .ico{font-size:16px;width:20px;text-align:center;flex-shrink:0}
+  .sb-item .badge-new{background:#F39C12;color:white;font-size:8px;font-weight:800;padding:2px 6px;border-radius:50px;margin-left:auto;letter-spacing:1px}
+  .sb-item .check-done{margin-left:auto;color:#52B788;font-size:14px}
+
+  /* MAIN */
+  .main{margin-left:var(--sb-w);min-height:100vh}
+  .topbar{display:none;background:var(--vd);color:white;padding:14px 18px;position:sticky;top:0;z-index:90;align-items:center;gap:12px}
+  .hamburger{background:none;border:none;color:white;font-size:22px;cursor:pointer}
+  .topbar-title{font-size:15px;font-weight:800}
+
+  /* PAGES */
+  .page{display:none;padding:44px 48px 80px;max-width:860px;animation:fadeIn .3s}
+  .page.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  /* PAGE HEADER */
+  .page-hero{background:linear-gradient(135deg,var(--vd),var(--v));color:white;border-radius:20px;padding:40px;margin-bottom:36px;position:relative;overflow:hidden}
+  .page-hero::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.03);top:-100px;right:-80px}
+  .page-hero .tag{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,.15);border-radius:50px;padding:4px 14px;display:inline-block;margin-bottom:14px}
+  .page-hero h1{font-size:clamp(22px,3.5vw,34px);font-weight:900;line-height:1.2;margin-bottom:10px}
+  .page-hero h1 em{color:#95D5B2;font-style:normal}
+  .page-hero p{font-size:14px;opacity:.85;max-width:500px}
+
+  /* CONTENT ELEMENTS */
+  .subtitle{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+  .subtitle.green{color:var(--vm)}
+  h2{font-size:clamp(20px,3vw,28px);font-weight:900;margin-bottom:16px;line-height:1.2}
+  h2 em{color:var(--vm);font-style:normal}
+  h3{font-size:17px;font-weight:800;color:var(--v);margin-bottom:10px}
+  p{font-size:14px;line-height:1.8;margin-bottom:14px;color:#555}
+  .tip{background:var(--vc);border-left:4px solid var(--vm);border-radius:12px;padding:18px 22px;margin:20px 0;font-weight:600;color:var(--v);font-size:14px}
+
+  /* PDF CARDS */
+  .pdf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:24px 0}
+  .pdf-card{background:white;border:2px solid #E8E8E8;border-radius:16px;padding:22px;transition:all .2s;cursor:pointer;position:relative}
+  .pdf-card:hover{border-color:var(--vm);box-shadow:0 8px 28px rgba(82,183,136,.12);transform:translateY(-2px)}
+  .pdf-card.downloaded{border-color:#D8F3DC}
+  .pdf-card.downloaded::after{content:"✓";position:absolute;top:12px;right:12px;background:var(--vm);color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
+  .pdf-card .pdf-icon{font-size:32px;margin-bottom:12px}
+  .pdf-card h4{font-size:14px;font-weight:800;color:var(--v);margin-bottom:6px}
+  .pdf-card p{font-size:12px;color:#888;margin:0;line-height:1.5}
+  .pdf-card .dl-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:var(--v);color:white;padding:8px 16px;border-radius:50px;font-size:11px;font-weight:800;text-decoration:none;transition:background .2s}
+  .pdf-card .dl-btn:hover{background:var(--vm)}
+
+  /* CATEGORY SECTIONS */
+  .cat-section{margin-bottom:40px}
+  .cat-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #E8E8E8}
+  .cat-header .cat-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .cat-header h3{margin:0;font-size:18px}
+  .cat-header p{margin:0;font-size:12px;color:#999}
+
+  /* WELCOME STATS */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:24px 0}
+  .stat-card{background:white;border-radius:14px;padding:20px;text-align:center;border:1px solid #E8E8E8}
+  .stat-card .num{font-size:32px;font-weight:900;color:var(--v)}
+  .stat-card .label{font-size:11px;font-weight:700;color:#888;margin-top:4px}
+
+  /* JOURNEY MAP */
+  .journey{margin:28px 0}
+  .journey-step{display:flex;gap:16px;margin-bottom:0;position:relative}
+  .journey-line{width:3px;background:linear-gradient(180deg,var(--vm),var(--vc));position:absolute;left:19px;top:42px;bottom:-2px}
+  .journey-dot{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;flex-shrink:0;z-index:1}
+  .journey-dot.done{background:var(--vm);color:white}
+  .journey-dot.current{background:var(--v);color:white;box-shadow:0 0 0 6px rgba(82,183,136,.2)}
+  .journey-dot.locked{background:#E8E8E8;color:#BBB}
+  .journey-content{flex:1;padding-bottom:28px}
+  .journey-content h4{font-size:15px;font-weight:800;color:var(--v);margin-bottom:4px}
+  .journey-content p{font-size:12px;color:#888;margin:0}
+
+  /* RESPONSIVE */
+  @media(max-width:768px){
+    .sidebar{transform:translateX(-100%)}
+    .sidebar.open{transform:translateX(0)}
+    .main{margin-left:0}
+    .topbar{display:flex}
+    .page{padding:24px 18px 80px}
+    .page-hero{padding:28px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="sb-header">
+    <div class="sb-logo">🏠 Casa em <span>Ordem</span></div>
+    <div class="sb-subtitle">Área exclusiva · Por Tâmara Cavalcante</div>
+  </div>
+  <div class="sb-progress"><div class="sb-progress-bar" id="progressBar"></div></div>
+  <div class="sb-progress-text" id="progressText">0 de 17 materiais baixados</div>
+
+  <div class="sb-section">Início</div>
+  <button class="sb-item active" onclick="showPage('home',this)"><span class="ico">🏡</span>Boas-vindas</button>
+  <button class="sb-item" onclick="showPage('jornada',this)"><span class="ico">🗺️</span>Minha Jornada</button>
+
+  <div class="sb-section">Guias Principais</div>
+  <button class="sb-item" onclick="showPage('planos',this)"><span class="ico">📋</span>Planos A e B<span class="badge-new">GUIA</span></button>
+
+  <div class="sb-section">Rotina e Limpeza</div>
+  <button class="sb-item" onclick="showPage('limpeza',this)"><span class="ico">🧹</span>Limpeza e Organização</button>
+
+  <div class="sb-section">Alimentação</div>
+  <button class="sb-item" onclick="showPage('alimentacao',this)"><span class="ico">🥦</span>Refeições e Compras</button>
+
+  <div class="sb-section">Planejamento</div>
+  <button class="sb-item" onclick="showPage('agendas',this)"><span class="ico">📅</span>Agendas e Planners</button>
+
+  <div class="sb-section">Extras</div>
+  <button class="sb-item" onclick="showPage('extras',this)"><span class="ico">🎯</span>Desafio e Pet</button>
+
+  <div class="sb-section">Todos os PDFs</div>
+  <button class="sb-item" onclick="showPage('todos',this)"><span class="ico">📦</span>Baixar Tudo</button>
+</nav>
+
+<!-- TOPBAR MOBILE -->
+<div class="topbar" id="topbar">
+  <button class="hamburger" onclick="toggleSidebar()">☰</button>
+  <span class="topbar-title">🏠 Casa em Ordem</span>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- HOME -->
+  <div class="page active" id="home">
+    <div class="page-hero">
+      <span class="tag">✨ Bem-vinda ao seu espaço</span>
+      <h1>Sua jornada para uma <em>casa organizada</em> começa aqui</h1>
+      <p>Aqui você encontra todos os materiais, PDFs e ferramentas para transformar a rotina da sua família — no seu ritmo.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card"><div class="num">17</div><div class="label">Materiais exclusivos</div></div>
+      <div class="stat-card"><div class="num">6</div><div class="label">Categorias</div></div>
+      <div class="stat-card"><div class="num">2</div><div class="label">Planos de rotina</div></div>
+      <div class="stat-card"><div class="num">30</div><div class="label">Dias de desafio</div></div>
+    </div>
+
+    <p class="subtitle green">Por onde começar?</p>
+    <h2>Siga esta ordem para <em>melhores resultados</em></h2>
+    <p>Você pode baixar os materiais em qualquer ordem, mas sugerimos este caminho para tirar o máximo proveito do método:</p>
+
+    <div class="journey">
+      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot current">1</div><div class="journey-content"><h4>Escolha seu Plano (A ou B)</h4><p>Leia o guia principal que mais combina com a sua rotina familiar</p></div></div>
+      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">2</div><div class="journey-content"><h4>Monte sua rotina de limpeza</h4><p>Use os cards de limpeza e o planejamento semanal</p></div></div>
+      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">3</div><div class="journey-content"><h4>Organize a alimentação</h4><p>Preencha o cardápio e a lista de compras</p></div></div>
+      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">4</div><div class="journey-content"><h4>Configure suas agendas</h4><p>Imprima a agenda diária, semanal e mensal</p></div></div>
+      <div class="journey-step"><div class="journey-dot locked">5</div><div class="journey-content"><h4>Aceite o Desafio dos 30 Dias</h4><p>Consolide todos os hábitos com o desafio progressivo</p></div></div>
+    </div>
+
+    <div class="tip">💡 <strong>Dica:</strong> Imprima os materiais e cole em locais estratégicos da casa (geladeira, mural, porta do armário). A visualização constante é a chave para manter a rotina.</div>
+  </div>
+
+  <!-- JORNADA -->
+  <div class="page" id="jornada">
+    <div class="page-hero" style="background:linear-gradient(135deg,#6C3483,#A569BD)">
+      <span class="tag">🗺️ Sua trilha</span>
+      <h1>Minha <em>Jornada</em></h1>
+      <p>Acompanhe seu progresso e veja quantos materiais já baixou. Cada download marca mais um passo na transformação da sua casa.</p>
+    </div>
+    <p>Seu progresso é salvo automaticamente neste navegador. Sempre que baixar um PDF, ele será marcado como concluído.</p>
+    <div id="journeyTracker"></div>
+  </div>
+
+  <!-- PLANOS -->
+  <div class="page" id="planos">
+    <div class="page-hero">
+      <span class="tag">📋 Guias Principais</span>
+      <h1>Plano A e <em>Plano B</em></h1>
+      <p>Dois caminhos diferentes para o mesmo objetivo: uma casa organizada sem esgotamento. Escolha o que combina com a sua realidade.</p>
+    </div>
+    <div class="pdf-grid">
+      <div class="pdf-card" data-pdf="plano-a-casa-em-ordem">
+        <div class="pdf-icon">📗</div>
+        <h4>Plano A — Casa Em Ordem</h4>
+        <p>Para famílias com rotina de trabalho fora de casa. Blocos de 10-15 min, manhã e noite.</p>
+        <a class="dl-btn" href="pdfs/plano-a-casa-em-ordem.pdf" download onclick="markDownloaded('plano-a-casa-em-ordem')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="plano-b-casa-organizada">
+        <div class="pdf-icon">📕</div>
+        <h4>Plano B — Casa Organizada</h4>
+        <p>Para quem tem horários flexíveis ou trabalha em casa. Micro-blocos distribuídos ao longo do dia.</p>
+        <a class="dl-btn" href="pdfs/plano-b-casa-organizada.pdf" download onclick="markDownloaded('plano-b-casa-organizada')">⬇ Baixar PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIMPEZA -->
+  <div class="page" id="limpeza">
+    <div class="page-hero" style="background:linear-gradient(135deg,#0F4C75,#3282B8)">
+      <span class="tag">🧹 Limpeza e Organização</span>
+      <h1>Rotina de limpeza <em>que funciona</em></h1>
+      <p>Ferramentas para distribuir a limpeza ao longo da semana sem precisar de faxinão pesado.</p>
+    </div>
+    <div class="pdf-grid">
+      <div class="pdf-card" data-pdf="cards-de-limpeza">
+        <div class="pdf-icon">🃏</div>
+        <h4>Cards de Limpeza</h4>
+        <p>Cartões recortáveis por cômodo e frequência. Cole na área de serviço.</p>
+        <a class="dl-btn" href="pdfs/cards-de-limpeza.pdf" download onclick="markDownloaded('cards-de-limpeza')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="planejamento-de-limpeza">
+        <div class="pdf-icon">📋</div>
+        <h4>Planejamento de Limpeza</h4>
+        <p>Planner semanal com tarefas por dia e ambiente.</p>
+        <a class="dl-btn" href="pdfs/planejamento-de-limpeza.pdf" download onclick="markDownloaded('planejamento-de-limpeza')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="limpeza-completo">
+        <div class="pdf-icon">✨</div>
+        <h4>Limpeza Completa</h4>
+        <p>Guia com todas as tarefas: diárias, semanais, mensais e sazonais.</p>
+        <a class="dl-btn" href="pdfs/limpeza-completo.pdf" download onclick="markDownloaded('limpeza-completo')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="organizacao-por-comodos">
+        <div class="pdf-icon">🏠</div>
+        <h4>Organização por Cômodos</h4>
+        <p>O que manter, descartar e reorganizar em cada ambiente.</p>
+        <a class="dl-btn" href="pdfs/organizacao-por-comodos.pdf" download onclick="markDownloaded('organizacao-por-comodos')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="roteiro-15min">
+        <div class="pdf-icon">⏱️</div>
+        <h4>Roteiro 15min Salva-Vidas</h4>
+        <p>Protocolo de emergência: 15 minutos para "salvar" a casa.</p>
+        <a class="dl-btn" href="pdfs/roteiro-15min.pdf" download onclick="markDownloaded('roteiro-15min')">⬇ Baixar PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALIMENTAÇÃO -->
+  <div class="page" id="alimentacao">
+    <div class="page-hero" style="background:linear-gradient(135deg,#E67E22,#F39C12)">
+      <span class="tag">🥦 Alimentação e Compras</span>
+      <h1>Cozinha organizada, <em>família alimentada</em></h1>
+      <p>Planejadores de refeição, lista de compras e controles de estoque para nunca mais ficar perdida na cozinha.</p>
+    </div>
+    <div class="pdf-grid">
+      <div class="pdf-card" data-pdf="cardapio-refeicoes">
+        <div class="pdf-icon">🍽️</div>
+        <h4>Cardápio de Refeições</h4>
+        <p>Template semanal para todas as refeições da família.</p>
+        <a class="dl-btn" href="pdfs/cardapio-refeicoes.pdf" download onclick="markDownloaded('cardapio-refeicoes')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="refeicoes-semana">
+        <div class="pdf-icon">📅</div>
+        <h4>Refeições Seg a Sex</h4>
+        <p>Planejador visual de dias úteis com lista de compras integrada.</p>
+        <a class="dl-btn" href="pdfs/refeicoes-semana.pdf" download onclick="markDownloaded('refeicoes-semana')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="lista-de-compras">
+        <div class="pdf-icon">🛒</div>
+        <h4>Lista de Compras Inteligente</h4>
+        <p>Organizada por setor do supermercado com controle de orçamento.</p>
+        <a class="dl-btn" href="pdfs/lista-de-compras.pdf" download onclick="markDownloaded('lista-de-compras')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="controle-despensa">
+        <div class="pdf-icon">📦</div>
+        <h4>Controle de Despensa</h4>
+        <p>Inventário com quantidade mínima, validade e indicador de reposição.</p>
+        <a class="dl-btn" href="pdfs/controle-despensa.pdf" download onclick="markDownloaded('controle-despensa')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="controle-freezer">
+        <div class="pdf-icon">❄️</div>
+        <h4>Controle do Freezer</h4>
+        <p>Registre o que está congelado, há quanto tempo e quando usar.</p>
+        <a class="dl-btn" href="pdfs/controle-freezer.pdf" download onclick="markDownloaded('controle-freezer')">⬇ Baixar PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGENDAS -->
+  <div class="page" id="agendas">
+    <div class="page-hero" style="background:linear-gradient(135deg,#6C3483,#A569BD)">
+      <span class="tag">📅 Planejamento</span>
+      <h1>Agendas e <em>Planners</em></h1>
+      <p>Ferramentas de planejamento para organizar o dia, a semana e o mês da sua família.</p>
+    </div>
+    <div class="pdf-grid">
+      <div class="pdf-card" data-pdf="agenda-diaria">
+        <div class="pdf-icon">☀️</div>
+        <h4>Agenda Diária</h4>
+        <p>Planner de um dia com manhã, tarde, noite, prioridades e gratidão.</p>
+        <a class="dl-btn" href="pdfs/agenda-diaria.pdf" download onclick="markDownloaded('agenda-diaria')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="agenda-semanal">
+        <div class="pdf-icon">📊</div>
+        <h4>Agenda Semanal</h4>
+        <p>Visão da semana com 7 colunas, metas e revisão semanal.</p>
+        <a class="dl-btn" href="pdfs/agenda-semanal.pdf" download onclick="markDownloaded('agenda-semanal')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="agenda-mensal">
+        <div class="pdf-icon">📆</div>
+        <h4>Agenda Mensal</h4>
+        <p>Calendário, rastreador de hábitos, metas e revisão do mês.</p>
+        <a class="dl-btn" href="pdfs/agenda-mensal.pdf" download onclick="markDownloaded('agenda-mensal')">⬇ Baixar PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRAS -->
+  <div class="page" id="extras">
+    <div class="page-hero" style="background:linear-gradient(135deg,#C0392B,#E74C3C)">
+      <span class="tag">🎯 Extras</span>
+      <h1>Desafio e <em>Rotina Pet</em></h1>
+      <p>Materiais especiais para consolidar hábitos e cuidar do seu companheiro de quatro patas.</p>
+    </div>
+    <div class="pdf-grid">
+      <div class="pdf-card" data-pdf="desafio-30-dias">
+        <div class="pdf-icon">🔥</div>
+        <h4>Desafio dos 30 Dias</h4>
+        <p>Uma tarefa por dia durante 30 dias. Transforme sua casa e seus hábitos.</p>
+        <a class="dl-btn" href="pdfs/desafio-30-dias.pdf" download onclick="markDownloaded('desafio-30-dias')">⬇ Baixar PDF</a>
+      </div>
+      <div class="pdf-card" data-pdf="rotina-pet">
+        <div class="pdf-icon">🐾</div>
+        <h4>Rotina do Pet</h4>
+        <p>Alimentação, vacinas, banhos, passeios e controle de gastos.</p>
+        <a class="dl-btn" href="pdfs/rotina-pet.pdf" download onclick="markDownloaded('rotina-pet')">⬇ Baixar PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODOS -->
+  <div class="page" id="todos">
+    <div class="page-hero" style="background:linear-gradient(135deg,#1A535C,#4ECDC4)">
+      <span class="tag">📦 Download completo</span>
+      <h1>Todos os <em>17 materiais</em></h1>
+      <p>Baixe cada material individualmente ou navegue pelas categorias no menu lateral.</p>
+    </div>
+    <div class="pdf-grid" id="allPdfsGrid"></div>
+  </div>
+
+</main>
+
+<script>
+// PDF Data
+const pdfs = [
+  {id:'plano-a-casa-em-ordem',name:'Plano A — Casa Em Ordem',desc:'Guia para famílias com rotina de trabalho',icon:'📗',cat:'Guia'},
+  {id:'plano-b-casa-organizada',name:'Plano B — Casa Organizada',desc:'Guia para horários flexíveis / home office',icon:'📕',cat:'Guia'},
+  {id:'cards-de-limpeza',name:'Cards de Limpeza',desc:'Cartões recortáveis por cômodo e frequência',icon:'🃏',cat:'Limpeza'},
+  {id:'planejamento-de-limpeza',name:'Planejamento de Limpeza',desc:'Planner semanal por ambiente',icon:'📋',cat:'Limpeza'},
+  {id:'limpeza-completo',name:'Limpeza Completa',desc:'Tarefas diárias, semanais, mensais e sazonais',icon:'✨',cat:'Limpeza'},
+  {id:'organizacao-por-comodos',name:'Organização por Cômodos',desc:'Manter, descartar e reorganizar',icon:'🏠',cat:'Limpeza'},
+  {id:'roteiro-15min',name:'Roteiro 15min Salva-Vidas',desc:'Protocolo de emergência doméstica',icon:'⏱️',cat:'Limpeza'},
+  {id:'cardapio-refeicoes',name:'Cardápio de Refeições',desc:'Template semanal para todas as refeições',icon:'🍽️',cat:'Alimentação'},
+  {id:'refeicoes-semana',name:'Refeições Seg a Sex',desc:'Planejador visual de dias úteis',icon:'📅',cat:'Alimentação'},
+  {id:'lista-de-compras',name:'Lista de Compras Inteligente',desc:'Organizada por setor do supermercado',icon:'🛒',cat:'Alimentação'},
+  {id:'controle-despensa',name:'Controle de Despensa',desc:'Inventário com validade e reposição',icon:'📦',cat:'Alimentação'},
+  {id:'controle-freezer',name:'Controle do Freezer',desc:'Registro de itens congelados',icon:'❄️',cat:'Alimentação'},
+  {id:'agenda-diaria',name:'Agenda Diária',desc:'Planner com prioridades e gratidão',icon:'☀️',cat:'Agendas'},
+  {id:'agenda-semanal',name:'Agenda Semanal',desc:'Visão de 7 dias com metas',icon:'📊',cat:'Agendas'},
+  {id:'agenda-mensal',name:'Agenda Mensal',desc:'Calendário e rastreador de hábitos',icon:'📆',cat:'Agendas'},
+  {id:'desafio-30-dias',name:'Desafio dos 30 Dias',desc:'Uma tarefa por dia durante 30 dias',icon:'🔥',cat:'Extras'},
+  {id:'rotina-pet',name:'Rotina do Pet',desc:'Alimentação, vacinas, banhos e passeios',icon:'🐾',cat:'Extras'}
+];
+
+// State
+let downloaded = JSON.parse(localStorage.getItem('ceo_downloaded') || '[]');
+
+function markDownloaded(id) {
+  if (!downloaded.includes(id)) {
+    downloaded.push(id);
+    localStorage.setItem('ceo_downloaded', JSON.stringify(downloaded));
+    updateUI();
+  }
+}
+
+function updateUI() {
+  // Update progress
+  const pct = Math.round((downloaded.length / pdfs.length) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = downloaded.length + ' de ' + pdfs.length + ' materiais baixados';
+
+  // Update card states
+  document.querySelectorAll('.pdf-card').forEach(card => {
+    const id = card.getAttribute('data-pdf');
+    if (downloaded.includes(id)) card.classList.add('downloaded');
+    else card.classList.remove('downloaded');
+  });
+}
+
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  // Close sidebar on mobile
+  document.getElementById('sidebar').classList.remove('open');
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// Build "all PDFs" page
+function buildAllPdfs() {
+  const grid = document.getElementById('allPdfsGrid');
+  pdfs.forEach(p => {
+    grid.innerHTML += `<div class="pdf-card" data-pdf="${p.id}">
+      <div class="pdf-icon">${p.icon}</div>
+      <h4>${p.name}</h4>
+      <p>${p.desc}</p>
+      <a class="dl-btn" href="pdfs/${p.id}.pdf" download onclick="markDownloaded('${p.id}')">⬇ Baixar PDF</a>
+    </div>`;
+  });
+}
+
+// Init
+buildAllPdfs();
+updateUI();
+
+// Close sidebar when clicking outside on mobile
+document.querySelector('.main').addEventListener('click', () => {
+  document.getElementById('sidebar').classList.remove('open');
+});
+</script>
+
+</body>
+</html>
