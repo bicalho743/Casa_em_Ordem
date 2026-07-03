@@ -195,17 +195,17 @@
       <p>Dois caminhos diferentes para o mesmo objetivo: uma casa organizada sem esgotamento. Escolha o que combina com a sua realidade.</p>
     </div>
     <div class="pdf-grid">
-      <div class="pdf-card" data-pdf="plano-a-casa-em-ordem">
+      <div class="pdf-card" data-pdf="plano-a-rotina-corrida">
         <div class="pdf-icon">📗</div>
         <h4>Plano A — Casa Em Ordem</h4>
         <p>Para famílias com rotina de trabalho fora de casa. Blocos de 10-15 min, manhã e noite.</p>
-        <a class="dl-btn" href="pdfs/plano-a-casa-em-ordem.pdf" download onclick="markDownloaded('plano-a-casa-em-ordem')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="pdfs/plano-a-rotina-corrida.pdf" download onclick="markDownloaded('plano-a-rotina-corrida')">⬇ Baixar PDF</a>
       </div>
-      <div class="pdf-card" data-pdf="plano-b-casa-organizada">
+      <div class="pdf-card" data-pdf="plano-b-rotina-flexivel">
         <div class="pdf-icon">📕</div>
         <h4>Plano B — Casa Organizada</h4>
         <p>Para quem tem horários flexíveis ou trabalha em casa. Micro-blocos distribuídos ao longo do dia.</p>
-        <a class="dl-btn" href="pdfs/plano-b-casa-organizada.pdf" download onclick="markDownloaded('plano-b-casa-organizada')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="pdfs/plano-b-rotina-flexivel.pdf" download onclick="markDownloaded('plano-b-rotina-flexivel')">⬇ Baixar PDF</a>
       </div>
     </div>
   </div>
@@ -242,11 +242,11 @@
         <p>O que manter, descartar e reorganizar em cada ambiente.</p>
         <a class="dl-btn" href="pdfs/organizacao-por-comodos.pdf" download onclick="markDownloaded('organizacao-por-comodos')">⬇ Baixar PDF</a>
       </div>
-      <div class="pdf-card" data-pdf="roteiro-15min">
+      <div class="pdf-card" data-pdf="roteiro-salva-vidas">
         <div class="pdf-icon">⏱️</div>
         <h4>Roteiro 15min Salva-Vidas</h4>
         <p>Protocolo de emergência: 15 minutos para "salvar" a casa.</p>
-        <a class="dl-btn" href="pdfs/roteiro-15min.pdf" download onclick="markDownloaded('roteiro-15min')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="pdfs/roteiro-salva-vidas.pdf" download onclick="markDownloaded('roteiro-salva-vidas')">⬇ Baixar PDF</a>
       </div>
     </div>
   </div>
@@ -265,11 +265,11 @@
         <p>Template semanal para todas as refeições da família.</p>
         <a class="dl-btn" href="pdfs/cardapio-refeicoes.pdf" download onclick="markDownloaded('cardapio-refeicoes')">⬇ Baixar PDF</a>
       </div>
-      <div class="pdf-card" data-pdf="refeicoes-semana">
+      <div class="pdf-card" data-pdf="refeicoes-dias-uteis">
         <div class="pdf-icon">📅</div>
         <h4>Refeições Seg a Sex</h4>
         <p>Planejador visual de dias úteis com lista de compras integrada.</p>
-        <a class="dl-btn" href="pdfs/refeicoes-semana.pdf" download onclick="markDownloaded('refeicoes-semana')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="pdfs/refeicoes-dias-uteis.pdf" download onclick="markDownloaded('refeicoes-dias-uteis')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="lista-de-compras">
         <div class="pdf-icon">🛒</div>
@@ -335,11 +335,11 @@
         <p>Uma tarefa por dia durante 30 dias. Transforme sua casa e seus hábitos.</p>
         <a class="dl-btn" href="pdfs/desafio-30-dias.pdf" download onclick="markDownloaded('desafio-30-dias')">⬇ Baixar PDF</a>
       </div>
-      <div class="pdf-card" data-pdf="rotina-pet">
+      <div class="pdf-card" data-pdf="rotina-do-pet">
         <div class="pdf-icon">🐾</div>
         <h4>Rotina do Pet</h4>
         <p>Alimentação, vacinas, banhos, passeios e controle de gastos.</p>
-        <a class="dl-btn" href="pdfs/rotina-pet.pdf" download onclick="markDownloaded('rotina-pet')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="pdfs/rotina-do-pet.pdf" download onclick="markDownloaded('rotina-do-pet')">⬇ Baixar PDF</a>
       </div>
     </div>
   </div>
@@ -359,15 +359,15 @@
 <script>
 // PDF Data
 const pdfs = [
-  {id:'plano-a-casa-em-ordem',name:'Plano A — Casa Em Ordem',desc:'Guia para famílias com rotina de trabalho',icon:'📗',cat:'Guia'},
-  {id:'plano-b-casa-organizada',name:'Plano B — Casa Organizada',desc:'Guia para horários flexíveis / home office',icon:'📕',cat:'Guia'},
+  {id:'plano-a-rotina-corrida',name:'Plano A — Rotina Corrida',desc:'Guia para famílias com rotina de trabalho',icon:'📗',cat:'Guia'},
+  {id:'plano-b-rotina-flexivel',name:'Plano B — Rotina Flexível',desc:'Guia para horários flexíveis / home office',icon:'📕',cat:'Guia'},
   {id:'cards-de-limpeza',name:'Cards de Limpeza',desc:'Cartões recortáveis por cômodo e frequência',icon:'🃏',cat:'Limpeza'},
   {id:'planejamento-de-limpeza',name:'Planejamento de Limpeza',desc:'Planner semanal por ambiente',icon:'📋',cat:'Limpeza'},
   {id:'limpeza-completo',name:'Limpeza Completa',desc:'Tarefas diárias, semanais, mensais e sazonais',icon:'✨',cat:'Limpeza'},
   {id:'organizacao-por-comodos',name:'Organização por Cômodos',desc:'Manter, descartar e reorganizar',icon:'🏠',cat:'Limpeza'},
-  {id:'roteiro-15min',name:'Roteiro 15min Salva-Vidas',desc:'Protocolo de emergência doméstica',icon:'⏱️',cat:'Limpeza'},
+  {id:'roteiro-salva-vidas',name:'Roteiro Salva-Vidas',desc:'Protocolo de emergência doméstica',icon:'⏱️',cat:'Limpeza'},
   {id:'cardapio-refeicoes',name:'Cardápio de Refeições',desc:'Template semanal para todas as refeições',icon:'🍽️',cat:'Alimentação'},
-  {id:'refeicoes-semana',name:'Refeições Seg a Sex',desc:'Planejador visual de dias úteis',icon:'📅',cat:'Alimentação'},
+  {id:'refeicoes-dias-uteis',name:'Refeições Dias Úteis',desc:'Planejador visual de dias úteis',icon:'📅',cat:'Alimentação'},
   {id:'lista-de-compras',name:'Lista de Compras Inteligente',desc:'Organizada por setor do supermercado',icon:'🛒',cat:'Alimentação'},
   {id:'controle-despensa',name:'Controle de Despensa',desc:'Inventário com validade e reposição',icon:'📦',cat:'Alimentação'},
   {id:'controle-freezer',name:'Controle do Freezer',desc:'Registro de itens congelados',icon:'❄️',cat:'Alimentação'},
@@ -375,7 +375,7 @@ const pdfs = [
   {id:'agenda-semanal',name:'Agenda Semanal',desc:'Visão de 7 dias com metas',icon:'📊',cat:'Agendas'},
   {id:'agenda-mensal',name:'Agenda Mensal',desc:'Calendário e rastreador de hábitos',icon:'📆',cat:'Agendas'},
   {id:'desafio-30-dias',name:'Desafio dos 30 Dias',desc:'Uma tarefa por dia durante 30 dias',icon:'🔥',cat:'Extras'},
-  {id:'rotina-pet',name:'Rotina do Pet',desc:'Alimentação, vacinas, banhos e passeios',icon:'🐾',cat:'Extras'}
+  {id:'rotina-do-pet',name:'Rotina do Pet',desc:'Alimentação, vacinas, banhos e passeios',icon:'🐾',cat:'Extras'}
 ];
 
 // State
