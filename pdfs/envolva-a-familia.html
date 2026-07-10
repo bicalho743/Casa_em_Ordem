@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envolva a Família — Casa Em Ordem | Por Tâmara Cavalcante</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', sans-serif; color: #3D3D3D; background: #fff; line-height: 1.7; font-size: 13px; }
+  .page { max-width: 700px; margin: 0 auto; padding: 32px 24px; }
+  .cover { background: linear-gradient(135deg, #6C3483 0%, #A569BD 50%, #D2B4DE 100%); color: white; border-radius: 20px; padding: 60px 40px; text-align: center; margin-bottom: 40px; page-break-after: always; }
+  .cover .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 6px 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+  .cover h1 { font-size: 36px; font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+  .cover h1 span { color: #F0E6F6; }
+  .cover p { font-size: 16px; opacity: 0.9; max-width: 440px; margin: 0 auto 20px; }
+  .cover .author { font-size: 13px; opacity: 0.7; margin-top: 28px; }
+  .section-title { color: #6C3483; font-size: 22px; font-weight: 900; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 3px solid #E8DAEF; }
+  .subtitle { color: #A569BD; font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  h3 { font-size: 16px; font-weight: 800; color: #6C3483; margin: 20px 0 10px; }
+  p { margin-bottom: 12px; }
+  .highlight { background: #F4ECF7; border-left: 4px solid #A569BD; border-radius: 10px; padding: 16px 20px; margin: 18px 0; font-weight: 600; color: #6C3483; }
+  .tip { background: #FFF3E8; border-left: 4px solid #F4A261; border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
+  .tip strong { color: #E07A5F; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  th { background: #6C3483; color: white; padding: 10px 12px; text-align: left; font-weight: 700; }
+  td { padding: 9px 12px; border-bottom: 1px solid #EEE; }
+  tr:nth-child(even) { background: #FCF8FE; }
+  .check-list { list-style: none; margin: 12px 0; }
+  .check-list li { padding: 8px 0 8px 28px; position: relative; border-bottom: 1px solid #F0F0F0; }
+  .check-list li::before { content: "☐"; position: absolute; left: 0; color: #A569BD; font-size: 16px; }
+  .step-card { background: #FAFAF8; border: 1px solid #E8E8E8; border-radius: 14px; padding: 20px; margin: 14px 0; }
+  .step-num { display: inline-block; background: #A569BD; color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 900; font-size: 13px; margin-right: 10px; }
+  .age-card { background: #FCF8FE; border: 2px solid #E8DAEF; border-radius: 14px; padding: 20px; margin: 14px 0; page-break-inside: avoid; }
+  .age-badge { display: inline-block; background: #6C3483; color: white; padding: 4px 14px; border-radius: 50px; font-size: 11px; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .do-box { background: #D5F5E3; border: 1px solid #ABEBC6; border-radius: 10px; padding: 14px; }
+  .dont-box { background: #FDEDEC; border: 1px solid #F5B7B1; border-radius: 10px; padding: 14px; }
+  .do-box h4 { color: #27AE60; font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+  .dont-box h4 { color: #E74C3C; font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+  .do-box li, .dont-box li { font-size: 12px; padding: 4px 0; list-style: none; }
+  .quadro { border: 3px dashed #A569BD; border-radius: 16px; padding: 24px; margin: 20px 0; page-break-inside: avoid; }
+  .quadro h3 { text-align: center; color: #6C3483; margin-bottom: 16px; font-size: 20px; }
+  .quadro-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; gap: 0; }
+  .quadro-cell { border: 1px solid #E8DAEF; padding: 8px 6px; font-size: 11px; text-align: center; min-height: 36px; }
+  .quadro-cell.header { background: #6C3483; color: white; font-weight: 800; font-size: 10px; }
+  .quadro-cell.task { text-align: left; font-weight: 600; background: #FCF8FE; }
+  .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #E8DAEF; font-size: 11px; color: #999; }
+  @media print {
+    .page { padding: 0; max-width: none; }
+    .cover { border-radius: 0; margin: -18mm -16mm 20mm; padding: 60px 40px; }
+    .step-card, .age-card, .quadro { break-inside: avoid; }
+    table { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- CAPA -->
+  <div class="cover">
+    <div class="badge">👨‍👩‍👧‍👦 Order Bump Exclusivo</div>
+    <h1>Envolva a <span>Família</span></h1>
+    <p>Estratégias reais para dividir tarefas, envolver as crianças por faixa etária e parar de fazer tudo sozinha.</p>
+    <div class="author">🏠 Casa em Ordem · Por Tâmara Cavalcante — Personal Organizer</div>
+  </div>
+
+  <!-- INTRODUÇÃO -->
+  <p class="subtitle">💬 Por que este guia existe</p>
+  <h2 class="section-title">Você não precisa fazer tudo sozinha</h2>
+
+  <p>A verdade que ninguém conta: a maioria das famílias não divide tarefas porque <strong>nunca foi combinado</strong>. Não é falta de vontade — é falta de sistema. Quando cada pessoa sabe exatamente o que fazer, quando e como, a rotina flui sem cobranças e sem conflito.</p>
+
+  <div class="highlight">Este guia é o "manual de instruções" que faltava para transformar a organização da casa em um projeto de família — não em uma missão solo.</div>
+
+  <p>Aqui dentro você vai encontrar:</p>
+  <ul class="check-list">
+    <li>Tabela de tarefas adequadas por faixa etária (2 a 14+ anos)</li>
+    <li>Script de conversa para dividir tarefas com o parceiro(a)</li>
+    <li>Quadro de Tarefas da Família (imprimível)</li>
+    <li>Sistema de recompensas saudável para crianças</li>
+    <li>Frases que motivam vs. frases que desmotivam</li>
+  </ul>
+
+  <!-- TAREFAS POR IDADE -->
+  <p class="subtitle">👶 Faixa etária</p>
+  <h2 class="section-title">O que cada idade pode fazer</h2>
+
+  <p>Crianças adoram ajudar — quando a tarefa é adequada e apresentada como participação, não como castigo. Veja o que cada faixa consegue fazer com autonomia:</p>
+
+  <div class="age-card">
+    <span class="age-badge">2 a 3 anos</span>
+    <h3>🧸 Fase da Imitação</h3>
+    <p>Nessa idade, a criança quer copiar o adulto. Aproveite!</p>
+    <table>
+      <tr><th>Tarefa</th><th>Como apresentar</th><th>Dica</th></tr>
+      <tr><td>Guardar brinquedos na caixa</td><td>"Vamos guardar juntos?"</td><td>Use caixas coloridas com fotos</td></tr>
+      <tr><td>Colocar roupa no cesto</td><td>"A roupa suja mora aqui!"</td><td>Cesto baixo e acessível</td></tr>
+      <tr><td>Jogar lixo no lixeiro</td><td>"Pode levar pra lixeirinha?"</td><td>Elogie sempre</td></tr>
+      <tr><td>Guardar sapatos no lugar</td><td>"Cada sapato tem uma casinha"</td><td>Marque o local com adesivos</td></tr>
+    </table>
+  </div>
+
+  <div class="age-card">
+    <span class="age-badge">4 a 5 anos</span>
+    <h3>🌱 Fase do "Eu consigo!"</h3>
+    <p>A criança já tem coordenação e adora se sentir capaz.</p>
+    <table>
+      <tr><th>Tarefa</th><th>Como apresentar</th><th>Dica</th></tr>
+      <tr><td>Arrumar a cama (com ajuda)</td><td>"Puxa o lençol pra mim?"</td><td>Não precisa ficar perfeito</td></tr>
+      <tr><td>Guardar talheres (sem faca)</td><td>"Cada um na casinha certa"</td><td>Divisor com desenho</td></tr>
+      <tr><td>Regar plantas</td><td>"As plantinhas estão com sede"</td><td>Regador pequeno</td></tr>
+      <tr><td>Colocar prato na pia</td><td>"Depois de comer, prato vai pra pia"</td><td>Prato de plástico</td></tr>
+      <tr><td>Alimentar o pet</td><td>"O [nome do pet] está esperando você"</td><td>Medir a porção juntos</td></tr>
+    </table>
+  </div>
+
+  <div class="age-card">
+    <span class="age-badge">6 a 8 anos</span>
+    <h3>⭐ Fase da Responsabilidade</h3>
+    <p>Já consegue seguir uma sequência simples e cuidar de espaços pequenos.</p>
+    <table>
+      <tr><th>Tarefa</th><th>Como apresentar</th><th>Dica</th></tr>
+      <tr><td>Arrumar a cama sozinho(a)</td><td>"Seu cantinho, sua responsabilidade"</td><td>Roupa de cama simples</td></tr>
+      <tr><td>Dobrar roupas simples</td><td>"Vamos dobrar juntos assistindo algo?"</td><td>Comece por toalhas</td></tr>
+      <tr><td>Tirar o lixo dos banheiros</td><td>"Sexta é dia do lixo do banheiro"</td><td>Dia fixo na semana</td></tr>
+      <tr><td>Organizar mochila escolar</td><td>"Confere a lista antes de dormir"</td><td>Checklist na parede</td></tr>
+      <tr><td>Varrer um cômodo</td><td>"Escolhe: sala ou quarto?"</td><td>Vassoura do tamanho certo</td></tr>
+    </table>
+  </div>
+
+  <div class="age-card">
+    <span class="age-badge">9 a 11 anos</span>
+    <h3>🚀 Fase da Autonomia</h3>
+    <p>Pode assumir tarefas recorrentes com pouca supervisão.</p>
+    <table>
+      <tr><th>Tarefa</th><th>Como apresentar</th><th>Dica</th></tr>
+      <tr><td>Lavar louça (ou colocar na máquina)</td><td>"Depois do jantar é com você"</td><td>Ensine uma vez, depois confie</td></tr>
+      <tr><td>Estender e recolher roupa</td><td>"Segunda e quinta são seus dias"</td><td>Cabides acessíveis</td></tr>
+      <tr><td>Preparar lanches simples</td><td>"Monte seu lanche da escola"</td><td>Lista de opções na geladeira</td></tr>
+      <tr><td>Limpar o próprio quarto</td><td>"Sábado de manhã = quarto em ordem"</td><td>Checklist no quarto</td></tr>
+      <tr><td>Ajudar nas compras</td><td>"Confere se tem tudo da lista"</td><td>Dar a lista na mão</td></tr>
+    </table>
+  </div>
+
+  <div class="age-card">
+    <span class="age-badge">12 a 14+ anos</span>
+    <h3>🎯 Fase da Contribuição Real</h3>
+    <p>Adolescentes podem assumir tarefas completas como membros ativos da casa.</p>
+    <table>
+      <tr><th>Tarefa</th><th>Como apresentar</th><th>Dica</th></tr>
+      <tr><td>Cozinhar uma refeição simples</td><td>"Quarta é o dia do seu jantar"</td><td>Comece com receitas de 3 ingredientes</td></tr>
+      <tr><td>Limpar banheiro completo</td><td>"Cada um cuida do seu banheiro"</td><td>Kit de limpeza pessoal</td></tr>
+      <tr><td>Fazer compras sozinho(a)</td><td>"A lista está no celular"</td><td>App de lista compartilhada</td></tr>
+      <tr><td>Cuidar da roupa (lavar, secar, guardar)</td><td>"Sua roupa é sua responsabilidade"</td><td>Ensinar a usar a máquina</td></tr>
+      <tr><td>Gerenciar o próprio espaço</td><td>"Seu quarto, suas regras (com mínimos)"</td><td>Negociar padrões mínimos</td></tr>
+    </table>
+  </div>
+
+  <!-- DIVISÃO COM PARCEIRO -->
+  <p class="subtitle">💑 Parceria em casa</p>
+  <h2 class="section-title">Como dividir tarefas com o parceiro(a)</h2>
+
+  <p>A divisão de tarefas não é sobre 50/50 exato — é sobre <strong>consciência e acordo</strong>. Aqui está um roteiro prático para ter essa conversa sem conflito:</p>
+
+  <div class="step-card">
+    <p><span class="step-num">1</span><strong>Liste tudo</strong></p>
+    <p>Sentem juntos e listem TODAS as tarefas da casa (incluindo as invisíveis: marcar consulta, comprar presente de aniversário, lembrar da reunião da escola).</p>
+  </div>
+
+  <div class="step-card">
+    <p><span class="step-num">2</span><strong>Classifique por preferência</strong></p>
+    <p>Cada um marca: "Gosto", "Neutro" ou "Detesto" em cada tarefa. Distribuam primeiro as que cada um gosta ou não se importa de fazer.</p>
+  </div>
+
+  <div class="step-card">
+    <p><span class="step-num">3</span><strong>Divida as que ninguém gosta</strong></p>
+    <p>As tarefas que ambos detestam devem ser alternadas por semana ou mês. Exemplo: "essa semana eu limpo o banheiro, na próxima é você."</p>
+  </div>
+
+  <div class="step-card">
+    <p><span class="step-num">4</span><strong>Defina dias e horários</strong></p>
+    <p>Combinem quando cada um faz a sua parte. Isso elimina a cobrança — o combinado não sai caro.</p>
+  </div>
+
+  <div class="step-card">
+    <p><span class="step-num">5</span><strong>Revisem a cada mês</strong></p>
+    <p>No primeiro domingo do mês, conversem 10 minutos: "O que está funcionando? O que precisa mudar?" Ajustem sem culpa.</p>
+  </div>
+
+  <div class="tip">
+    <strong>💡 Regra de ouro:</strong> Não refaça o que o outro fez. Se a toalha não ficou dobrada do seu jeito, tudo bem. Perfeição mata a participação.
+  </div>
+
+  <!-- FRASES -->
+  <p class="subtitle">💬 Comunicação</p>
+  <h2 class="section-title">Frases que motivam vs. que desmotivam</h2>
+
+  <p>A forma como pedimos faz toda a diferença. Pequenas mudanças na linguagem transformam a resistência em colaboração:</p>
+
+  <div class="grid2">
+    <div class="dont-box">
+      <h4>❌ Evite dizer</h4>
+      <ul>
+        <li>"Ninguém me ajuda nessa casa!"</li>
+        <li>"Você nunca faz nada direito"</li>
+        <li>"Eu tenho que fazer TUDO"</li>
+        <li>"Não é assim que se faz"</li>
+        <li>"Deixa que eu faço, é mais rápido"</li>
+        <li>"Você só faz quando eu mando"</li>
+      </ul>
+    </div>
+    <div class="do-box">
+      <h4>✅ Prefira dizer</h4>
+      <ul>
+        <li>"Preciso da sua ajuda com X"</li>
+        <li>"Adorei que você fez isso!"</li>
+        <li>"Vamos dividir pra ficar leve pra todos"</li>
+        <li>"Quer que eu te mostre um jeito?"</li>
+        <li>"Você consegue! Eu confio"</li>
+        <li>"Obrigada por lembrar de fazer"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RECOMPENSAS -->
+  <p class="subtitle">🏅 Motivação saudável</p>
+  <h2 class="section-title">Sistema de recompensas (sem suborno)</h2>
+
+  <p>Recompensa não é suborno. É reconhecimento. A diferença está em <strong>quando</strong> e <strong>como</strong> você oferece:</p>
+
+  <table>
+    <tr><th>Tipo</th><th>Exemplo</th><th>Quando usar</th></tr>
+    <tr><td>🌟 Elogio específico</td><td>"Você guardou todos os brinquedos sem eu pedir!"</td><td>Sempre — é a base</td></tr>
+    <tr><td>⭐ Estrelinhas no quadro</td><td>Cada tarefa feita = 1 estrela</td><td>Crianças de 3 a 8 anos</td></tr>
+    <tr><td>🎉 Privilégio especial</td><td>"Escolhe o filme de sábado"</td><td>Ao completar a semana</td></tr>
+    <tr><td>🍰 Experiência em família</td><td>Passeio, piquenique, jogo de tabuleiro</td><td>Ao completar o mês</td></tr>
+    <tr><td>💰 Mesada por tarefas extras</td><td>R$ 2-5 por tarefa bônus</td><td>A partir de 10 anos</td></tr>
+  </table>
+
+  <div class="tip">
+    <strong>⚠️ Atenção:</strong> Não pague por tarefas básicas (arrumar a cama, guardar o prato). São responsabilidades, não trabalho extra. A mesada funciona melhor para tarefas "bônus" como lavar o carro ou organizar a garagem.
+  </div>
+
+  <!-- QUADRO IMPRIMÍVEL -->
+  <p class="subtitle">📋 Material imprimível</p>
+  <h2 class="section-title">Quadro de Tarefas da Família</h2>
+
+  <p>Imprima, cole na geladeira ou mural da cozinha. Cada membro marca com ✓ quando completar a tarefa do dia.</p>
+
+  <div class="quadro">
+    <h3>🏠 Quadro de Tarefas — Semana de ___/___</h3>
+    <div class="quadro-grid">
+      <div class="quadro-cell header">Tarefa</div>
+      <div class="quadro-cell header">Seg</div>
+      <div class="quadro-cell header">Ter</div>
+      <div class="quadro-cell header">Qua</div>
+      <div class="quadro-cell header">Qui</div>
+      <div class="quadro-cell header">Sex</div>
+      <div class="quadro-cell header">Sáb</div>
+      <div class="quadro-cell header">Dom</div>
+
+      <div class="quadro-cell task">Arrumar a cama</div>
+      <div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div>
+
+      <div class="quadro-cell task">Guardar brinquedos</div>
+      <div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div>
+
+      <div class="quadro-cell task">Levar prato à pia</div>
+      <div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div>
+
+      <div class="quadro-cell task">Roupa no cesto</div>
+      <div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div>
+
+      <div class="quadro-cell task">Alimentar o pet</div>
+      <div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div>
+
+      <div class="quadro-cell task">Lixo do banheiro</div>
+      <div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div>
+
+      <div class="quadro-cell task">_______________</div>
+      <div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div>
+
+      <div class="quadro-cell task">_______________</div>
+      <div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div><div class="quadro-cell"></div>
+    </div>
+    <p style="text-align:center;font-size:11px;color:#A569BD;margin-top:12px;font-weight:700">Responsável: _________________ · ⭐ Estrelas da semana: ___</p>
+  </div>
+
+  <div class="highlight">💡 Imprima um quadro por membro da família. No final da semana, contem as estrelas juntos e celebrem quem completou tudo!</div>
+
+  <!-- DICAS FINAIS -->
+  <p class="subtitle">🎯 Resumo prático</p>
+  <h2 class="section-title">5 regras para o sucesso</h2>
+
+  <div class="step-card">
+    <p><span class="step-num">1</span><strong>Comece pequeno.</strong> Não tente mudar tudo de uma vez. Uma tarefa nova por semana para cada pessoa é o ideal.</p>
+  </div>
+  <div class="step-card">
+    <p><span class="step-num">2</span><strong>Não refaça.</strong> Se o outro fez diferente do seu jeito, agradeça e siga em frente. Perfeição mata participação.</p>
+  </div>
+  <div class="step-card">
+    <p><span class="step-num">3</span><strong>Elogie em público.</strong> "Olha como o [nome] deixou o quarto bonito!" vale mais que qualquer recompensa.</p>
+  </div>
+  <div class="step-card">
+    <p><span class="step-num">4</span><strong>Seja consistente.</strong> As tarefas precisam ser as mesmas toda semana. Rotina cria hábito. Hábito cria autonomia.</p>
+  </div>
+  <div class="step-card">
+    <p><span class="step-num">5</span><strong>Celebre junto.</strong> No final do mês, façam algo especial em família. A casa organizada é uma conquista de todos.</p>
+  </div>
+
+  <div class="footer">
+    <p>🏠 Casa em Ordem · Por Tâmara Cavalcante · Material exclusivo</p>
+    <p style="margin-top:6px">Este material faz parte do order bump do Kit Casa em Ordem.</p>
+  </div>
+
+</div>
+</body>
+</html>

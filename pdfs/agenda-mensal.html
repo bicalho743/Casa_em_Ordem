@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda Mensal | Casa em Ordem</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page{size:A4;margin:14mm 12mm}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',sans-serif;color:#3D3D3D;background:#fff;line-height:1.5;font-size:12px}.page{max-width:700px;margin:0 auto;padding:24px}.header{background:linear-gradient(135deg,#6C3483,#A569BD);color:white;border-radius:14px;padding:24px 28px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center}.header h1{font-size:22px;font-weight:900}.header h1 span{color:#E8DAEF}.header .info{text-align:right;font-size:13px;opacity:.9}.section-title{color:#6C3483;font-size:16px;font-weight:900;margin:20px 0 10px;padding-bottom:4px;border-bottom:2px solid #E8DAEF}.cal{width:100%;border-collapse:collapse;margin:12px 0}.cal th{background:#6C3483;color:white;padding:8px;text-align:center;font-size:11px;font-weight:700}.cal td{border:1px solid #E8E8E8;padding:6px;height:65px;vertical-align:top;font-size:10px;width:14.28%}.cal td .num{font-weight:800;color:#6C3483;font-size:12px;margin-bottom:4px}.cal td .note{color:#888;line-height:1.4}.goals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.goal-box{border:2px solid #E8DAEF;border-radius:14px;padding:16px}.goal-box h3{font-size:13px;font-weight:800;color:#6C3483;margin-bottom:8px}.goal-box .line{border-bottom:1px dashed #E8DAEF;padding:6px 0;font-size:11px;display:flex;gap:6px}.goal-box .line .cb{color:#A569BD}.habit{margin:14px 0}.habit table{width:100%;border-collapse:collapse;font-size:10px}.habit th{background:#A569BD;color:white;padding:6px;font-weight:700}.habit td{padding:5px;border:1px solid #F0F0F0;text-align:center}.habit td:first-child{text-align:left;font-weight:700;width:25%}.review{background:#F5EEF8;border-radius:14px;padding:18px;margin:14px 0}.review h3{font-size:14px;font-weight:800;color:#6C3483;margin-bottom:10px}.review .q{border-bottom:1px solid #E8DAEF;padding:8px 0;font-size:12px}.footer{text-align:center;margin-top:16px;font-size:10px;color:#BBB}@media print{.page{padding:0;max-width:none}.header{border-radius:0;margin:-14mm -12mm 16mm;padding:24px 28px}.cal td{height:55px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div>
+    <h1>Agenda <span>Mensal</span></h1>
+    <p style="font-size:11px;opacity:.7;margin:0">🏠 Casa em Ordem · Por Tâmara Cavalcante</p>
+  </div>
+  <div class="info">
+    <p style="margin:0">Mês: _______________</p>
+    <p style="margin:3px 0 0">Ano: ________</p>
+  </div>
+</div>
+
+<h2 class="section-title">📅 Calendário</h2>
+<table class="cal">
+  <thead>
+    <tr><th>DOM</th><th>SEG</th><th>TER</th><th>QUA</th><th>QUI</th><th>SEX</th><th>SÁB</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><div class="num"></div><div class="note"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td></tr>
+    <tr><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td></tr>
+    <tr><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td></tr>
+    <tr><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td></tr>
+    <tr><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td><td><div class="num"></div></td></tr>
+  </tbody>
+</table>
+
+<div class="goals">
+  <div class="goal-box">
+    <h3>🎯 Metas do Mês</h3>
+    <div class="line"><span class="cb">☐</span> ______________________________</div>
+    <div class="line"><span class="cb">☐</span> ______________________________</div>
+    <div class="line"><span class="cb">☐</span> ______________________________</div>
+    <div class="line"><span class="cb">☐</span> ______________________________</div>
+    <div class="line"><span class="cb">☐</span> ______________________________</div>
+  </div>
+  <div class="goal-box">
+    <h3>📌 Compromissos Importantes</h3>
+    <div class="line"><span class="cb">📅</span> ______________________________</div>
+    <div class="line"><span class="cb">📅</span> ______________________________</div>
+    <div class="line"><span class="cb">📅</span> ______________________________</div>
+    <div class="line"><span class="cb">📅</span> ______________________________</div>
+    <div class="line"><span class="cb">📅</span> ______________________________</div>
+  </div>
+</div>
+
+<h2 class="section-title">✅ Rastreador de Hábitos</h2>
+<div class="habit">
+  <table>
+    <tr><th>Hábito</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th><th>26</th><th>27</th><th>28</th><th>29</th><th>30</th><th>31</th></tr>
+    <tr><td>Rotina manhã</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>Rotina noite</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>8 copos de água</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>___________</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>___________</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+</div>
+
+<div class="review">
+  <h3>🌿 Revisão do Mês</h3>
+  <div class="q">O que realizei este mês? _________________________________________________</div>
+  <div class="q">O que não consegui e por quê? ___________________________________________</div>
+  <div class="q">O que quero priorizar no próximo mês? ____________________________________</div>
+  <div class="q">Como me senti em relação à rotina? ☆☆☆☆☆</div>
+</div>
+
+<div class="footer">
+  <p>🏠 Casa em Ordem · Por Tâmara Cavalcante · 2026 · Material exclusivo</p>
+</div>
+
+</div>
+</body>
+</html>
