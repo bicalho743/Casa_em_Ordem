@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: FTP Deploy Locaweb
+    - name: FTP Deploy Main Site & Jornada
       uses: locaweb/ftp-deploy@1.0.0
       with:
         host: ${{ secrets.HOST }} 
@@ -21,3 +21,12 @@ jobs:
         password: ${{ secrets.PASS }}
         localDir: "."
         remoteDir: "public_html/casa-em-ordem"
+
+    - name: FTP Deploy Quiz Subdomain
+      uses: locaweb/ftp-deploy@1.0.0
+      with:
+        host: ${{ secrets.HOST }} 
+        user: ${{ secrets.USER }}
+        password: ${{ secrets.PASS }}
+        localDir: "casa-em-ordem-quiz"
+        remoteDir: "public_html/casa-em-ordem-quiz"
