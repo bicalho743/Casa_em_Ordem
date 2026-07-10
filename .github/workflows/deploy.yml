@@ -1,3 +1,4 @@
+# Trigger deploy with secrets configured
 name: Deploy via ftp
 
 on:
