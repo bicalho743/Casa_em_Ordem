@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit de Etiquetas — Casa Em Ordem | Por Tâmara Cavalcante</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 14mm 12mm; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', sans-serif; color: #3D3D3D; background: #fff; line-height: 1.5; font-size: 13px; }
+  .page { max-width: 700px; margin: 0 auto; padding: 24px 20px; }
+
+  /* CAPA */
+  .cover { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%); color: white; border-radius: 20px; padding: 60px 40px; text-align: center; margin-bottom: 32px; page-break-after: always; }
+  .cover .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 6px 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+  .cover h1 { font-size: 36px; font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+  .cover h1 span { color: #95D5B2; }
+  .cover p { font-size: 16px; opacity: 0.9; max-width: 440px; margin: 0 auto 20px; }
+  .cover .author { font-size: 13px; opacity: 0.7; margin-top: 28px; }
+
+  .section-title { color: #2D6A4F; font-size: 20px; font-weight: 900; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 3px solid #D8F3DC; }
+  .subtitle { color: #52B788; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .instrucoes { background: #D8F3DC; border-left: 4px solid #52B788; border-radius: 10px; padding: 14px 18px; margin: 14px 0; font-size: 13px; color: #2D6A4F; }
+  .instrucoes strong { color: #1B4332; }
+
+  /* ETIQUETAS */
+  .etq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+  .etq-grid.cols4 { grid-template-columns: repeat(4, 1fr); }
+  .etq-grid.cols2 { grid-template-columns: repeat(2, 1fr); }
+
+  .etq { border: 2px dashed #B7E4C7; border-radius: 12px; padding: 14px 10px; text-align: center; page-break-inside: avoid; background: #FAFFFE; }
+  .etq .ico { font-size: 24px; margin-bottom: 4px; }
+  .etq .nome { font-size: 14px; font-weight: 800; color: #2D6A4F; margin-bottom: 2px; }
+  .etq .sub-info { font-size: 10px; color: #999; }
+  .etq .campo { border-bottom: 1.5px dotted #B7E4C7; margin: 6px auto 0; width: 80%; height: 16px; }
+
+  /* Variações de cor */
+  .etq.coral { border-color: #F5B7B1; background: #FFF5F4; }
+  .etq.coral .nome { color: #C0392B; }
+  .etq.coral .campo { border-color: #F5B7B1; }
+
+  .etq.azul { border-color: #AED6F1; background: #F5FAFF; }
+  .etq.azul .nome { color: #2E86C1; }
+  .etq.azul .campo { border-color: #AED6F1; }
+
+  .etq.laranja { border-color: #FAD7A0; background: #FFFCF5; }
+  .etq.laranja .nome { color: #E67E22; }
+  .etq.laranja .campo { border-color: #FAD7A0; }
+
+  .etq.roxo { border-color: #D7BDE2; background: #FDF5FF; }
+  .etq.roxo .nome { color: #7D3C98; }
+  .etq.roxo .campo { border-color: #D7BDE2; }
+
+  /* Etiquetas grandes (freezer/validade) */
+  .etq-lg { border: 2px dashed #AED6F1; border-radius: 14px; padding: 16px; background: #F5FAFF; page-break-inside: avoid; margin-bottom: 10px; }
+  .etq-lg .ico { font-size: 22px; float: left; margin-right: 10px; }
+  .etq-lg .nome { font-size: 15px; font-weight: 800; color: #2E86C1; }
+  .etq-lg .campos { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+  .etq-lg .campo-item { font-size: 11px; color: #777; }
+  .etq-lg .campo-item span { display: block; border-bottom: 1.5px dotted #AED6F1; height: 18px; margin-top: 2px; }
+
+  /* Etiquetas cestos */
+  .etq-cesto { border: 3px solid #D8F3DC; border-radius: 16px; padding: 20px; text-align: center; background: #FAFFFE; }
+  .etq-cesto .ico { font-size: 32px; margin-bottom: 6px; }
+  .etq-cesto .nome { font-size: 18px; font-weight: 900; color: #2D6A4F; letter-spacing: 1px; }
+  .etq-cesto .desc { font-size: 11px; color: #888; margin-top: 4px; }
+
+  .footer { text-align: center; margin-top: 32px; padding-top: 16px; border-top: 2px solid #D8F3DC; font-size: 11px; color: #999; }
+
+  @media print {
+    .page { padding: 0; max-width: none; }
+    .cover { border-radius: 0; margin: -14mm -12mm 16mm; padding: 60px 40px; }
+    .etq, .etq-lg, .etq-cesto { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- CAPA -->
+  <div class="cover">
+    <div class="badge">🏷️ Order Bump Exclusivo</div>
+    <h1>Kit de <span>Etiquetas</span></h1>
+    <p>Etiquetas prontas para imprimir e colar em potes, caixas, gavetas, cestos e tudo mais. Organização bonita começa aqui.</p>
+    <div class="author">🏠 Casa em Ordem · Por Tâmara Cavalcante — Personal Organizer</div>
+  </div>
+
+  <!-- INSTRUÇÕES -->
+  <div class="instrucoes">
+    <strong>✂️ Como usar:</strong> Imprima em papel adesivo (ou papel comum + cola bastão). Recorte pela linha tracejada. Cole nos potes, caixas, cestos e gavetas. Para proteger, aplique uma camada de fita transparente larga por cima.
+  </div>
+
+  <!-- DESPENSA -->
+  <p class="subtitle">🫙 Despensa e cozinha</p>
+  <h2 class="section-title">Etiquetas para Potes e Recipientes</h2>
+
+  <div class="etq-grid">
+    <div class="etq"><div class="ico">🍚</div><div class="nome">Arroz</div><div class="sub-info">Grão</div></div>
+    <div class="etq"><div class="ico">🫘</div><div class="nome">Feijão</div><div class="sub-info">Grão</div></div>
+    <div class="etq"><div class="ico">🍝</div><div class="nome">Macarrão</div><div class="sub-info">Massa</div></div>
+    <div class="etq"><div class="ico">🌾</div><div class="nome">Farinha de Trigo</div><div class="sub-info">Farinha</div></div>
+    <div class="etq"><div class="ico">🥣</div><div class="nome">Aveia</div><div class="sub-info">Cereal</div></div>
+    <div class="etq"><div class="ico">🧂</div><div class="nome">Sal</div><div class="sub-info">Tempero</div></div>
+    <div class="etq"><div class="ico">🍬</div><div class="nome">Açúcar</div><div class="sub-info">Doce</div></div>
+    <div class="etq"><div class="ico">☕</div><div class="nome">Café</div><div class="sub-info">Bebida</div></div>
+    <div class="etq"><div class="ico">🫖</div><div class="nome">Chá</div><div class="sub-info">Bebida</div></div>
+    <div class="etq"><div class="ico">🌿</div><div class="nome">Temperos</div><div class="sub-info">Especiarias</div></div>
+    <div class="etq"><div class="ico">🥜</div><div class="nome">Granola</div><div class="sub-info">Cereal</div></div>
+    <div class="etq"><div class="ico">🍫</div><div class="nome">Achocolatado</div><div class="sub-info">Bebida</div></div>
+    <div class="etq"><div class="ico">🧈</div><div class="nome">Manteiga</div><div class="sub-info">Laticínio</div></div>
+    <div class="etq"><div class="ico">🥛</div><div class="nome">Leite em Pó</div><div class="sub-info">Laticínio</div></div>
+    <div class="etq"><div class="ico">🍪</div><div class="nome">Biscoitos</div><div class="sub-info">Lanche</div></div>
+    <div class="etq"><div class="ico">🥫</div><div class="nome">Molho</div><div class="sub-info">Conserva</div></div>
+    <div class="etq"><div class="ico">🫒</div><div class="nome">Azeite</div><div class="sub-info">Óleo</div></div>
+    <div class="etq"><div class="ico">🍯</div><div class="nome">Mel</div><div class="sub-info">Doce</div></div>
+  </div>
+
+  <!-- ETIQUETAS EM BRANCO -->
+  <p style="font-size:12px;color:#888;margin:12px 0 4px">Etiquetas em branco — escreva o que quiser:</p>
+  <div class="etq-grid">
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">___________</div><div class="campo"></div></div>
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">___________</div><div class="campo"></div></div>
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">___________</div><div class="campo"></div></div>
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">___________</div><div class="campo"></div></div>
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">___________</div><div class="campo"></div></div>
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">___________</div><div class="campo"></div></div>
+  </div>
+
+  <!-- FREEZER -->
+  <p class="subtitle">❄️ Freezer e congelados</p>
+  <h2 class="section-title">Etiquetas com Data e Validade</h2>
+
+  <div class="etq-lg">
+    <div class="ico">🥩</div>
+    <div class="nome">Carne</div>
+    <div class="campos">
+      <div class="campo-item">Tipo: <span></span></div>
+      <div class="campo-item">Peso: <span></span></div>
+      <div class="campo-item">Congelado em: <span></span></div>
+      <div class="campo-item">Validade: <span></span></div>
+    </div>
+  </div>
+
+  <div class="etq-lg">
+    <div class="ico">🍗</div>
+    <div class="nome">Frango</div>
+    <div class="campos">
+      <div class="campo-item">Corte: <span></span></div>
+      <div class="campo-item">Peso: <span></span></div>
+      <div class="campo-item">Congelado em: <span></span></div>
+      <div class="campo-item">Validade: <span></span></div>
+    </div>
+  </div>
+
+  <div class="etq-lg">
+    <div class="ico">🍲</div>
+    <div class="nome">Marmita / Refeição Pronta</div>
+    <div class="campos">
+      <div class="campo-item">Conteúdo: <span></span></div>
+      <div class="campo-item">Porções: <span></span></div>
+      <div class="campo-item">Congelado em: <span></span></div>
+      <div class="campo-item">Validade: <span></span></div>
+    </div>
+  </div>
+
+  <div class="etq-lg">
+    <div class="ico">🫛</div>
+    <div class="nome">Legumes / Verduras</div>
+    <div class="campos">
+      <div class="campo-item">Item: <span></span></div>
+      <div class="campo-item">Peso: <span></span></div>
+      <div class="campo-item">Congelado em: <span></span></div>
+      <div class="campo-item">Validade: <span></span></div>
+    </div>
+  </div>
+
+  <div class="etq-lg">
+    <div class="ico">🍰</div>
+    <div class="nome">Sobremesa / Bolo</div>
+    <div class="campos">
+      <div class="campo-item">Tipo: <span></span></div>
+      <div class="campo-item">Porções: <span></span></div>
+      <div class="campo-item">Congelado em: <span></span></div>
+      <div class="campo-item">Validade: <span></span></div>
+    </div>
+  </div>
+
+  <!-- Etiquetas freezer em branco -->
+  <div class="etq-lg" style="border-color:#D8F3DC;background:#FAFFFE">
+    <div class="ico">📝</div>
+    <div class="nome" style="color:#52B788">__________________</div>
+    <div class="campos">
+      <div class="campo-item">____________: <span></span></div>
+      <div class="campo-item">____________: <span></span></div>
+      <div class="campo-item">Congelado em: <span></span></div>
+      <div class="campo-item">Validade: <span></span></div>
+    </div>
+  </div>
+
+  <!-- CAIXAS ORGANIZADORAS -->
+  <p class="subtitle">📦 Caixas e gavetas</p>
+  <h2 class="section-title">Etiquetas para Caixas Organizadoras</h2>
+
+  <div class="etq-grid cols2">
+    <div class="etq laranja"><div class="ico">👕</div><div class="nome">Roupas de Verão</div><div class="sub-info">Armário / Caixa</div></div>
+    <div class="etq azul"><div class="ico">🧥</div><div class="nome">Roupas de Inverno</div><div class="sub-info">Armário / Caixa</div></div>
+    <div class="etq roxo"><div class="ico">🧸</div><div class="nome">Brinquedos</div><div class="sub-info">Quarto das crianças</div></div>
+    <div class="etq"><div class="ico">📚</div><div class="nome">Material Escolar</div><div class="sub-info">Escritório / Quarto</div></div>
+    <div class="etq coral"><div class="ico">💊</div><div class="nome">Medicamentos</div><div class="sub-info">Armário do banheiro</div></div>
+    <div class="etq"><div class="ico">📄</div><div class="nome">Documentos</div><div class="sub-info">Escritório</div></div>
+    <div class="etq laranja"><div class="ico">🔧</div><div class="nome">Ferramentas</div><div class="sub-info">Garagem / Lavanderia</div></div>
+    <div class="etq azul"><div class="ico">🎄</div><div class="nome">Decoração</div><div class="sub-info">Sazonal</div></div>
+    <div class="etq roxo"><div class="ico">🧴</div><div class="nome">Higiene e Beleza</div><div class="sub-info">Banheiro</div></div>
+    <div class="etq"><div class="ico">🧶</div><div class="nome">Artesanato</div><div class="sub-info">Hobby</div></div>
+    <div class="etq coral"><div class="ico">📸</div><div class="nome">Lembranças</div><div class="sub-info">Fotos e recordações</div></div>
+    <div class="etq laranja"><div class="ico">👶</div><div class="nome">Coisas do Bebê</div><div class="sub-info">Quarto / Caixa</div></div>
+  </div>
+
+  <!-- Etiquetas em branco para caixas -->
+  <div class="etq-grid cols2" style="margin-top:10px">
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">_______________</div><div class="sub-info" style="color:#DDD">Local: __________</div></div>
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">_______________</div><div class="sub-info" style="color:#DDD">Local: __________</div></div>
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">_______________</div><div class="sub-info" style="color:#DDD">Local: __________</div></div>
+    <div class="etq"><div class="ico">📝</div><div class="nome" style="color:#CCC">_______________</div><div class="sub-info" style="color:#DDD">Local: __________</div></div>
+  </div>
+
+  <!-- CESTOS DE ROUPA -->
+  <p class="subtitle">👕 Lavanderia</p>
+  <h2 class="section-title">Etiquetas para Cestos de Roupa</h2>
+
+  <div class="etq-grid cols2">
+    <div class="etq-cesto"><div class="ico">⬜</div><div class="nome">BRANCAS</div><div class="desc">Roupas claras e brancas</div></div>
+    <div class="etq-cesto" style="border-color:#AED6F1"><div class="ico">🔵</div><div class="nome" style="color:#2E86C1">COLORIDAS</div><div class="desc">Roupas escuras e coloridas</div></div>
+    <div class="etq-cesto" style="border-color:#D7BDE2"><div class="ico">🩷</div><div class="nome" style="color:#7D3C98">DELICADAS</div><div class="desc">Peças finas e íntimas</div></div>
+    <div class="etq-cesto" style="border-color:#FAD7A0"><div class="ico">🟠</div><div class="nome" style="color:#E67E22">TOALHAS</div><div class="desc">Toalhas de banho e rosto</div></div>
+  </div>
+
+  <!-- ETIQUETAS DECORATIVAS -->
+  <p class="subtitle">✨ Planners e cadernos</p>
+  <h2 class="section-title">Etiquetas Decorativas</h2>
+
+  <div class="etq-grid cols4">
+    <div class="etq" style="border-style:solid;border-color:#52B788"><div class="ico">🌿</div><div class="nome" style="font-size:11px">Casa em Ordem</div></div>
+    <div class="etq laranja" style="border-style:solid"><div class="ico">📅</div><div class="nome" style="font-size:11px">Minha Agenda</div></div>
+    <div class="etq roxo" style="border-style:solid"><div class="ico">💜</div><div class="nome" style="font-size:11px">Meus Planos</div></div>
+    <div class="etq azul" style="border-style:solid"><div class="ico">📝</div><div class="nome" style="font-size:11px">Anotações</div></div>
+    <div class="etq coral" style="border-style:solid"><div class="ico">❤️</div><div class="nome" style="font-size:11px">Gratidão</div></div>
+    <div class="etq" style="border-style:solid;border-color:#52B788"><div class="ico">🎯</div><div class="nome" style="font-size:11px">Metas do Mês</div></div>
+    <div class="etq laranja" style="border-style:solid"><div class="ico">🛒</div><div class="nome" style="font-size:11px">Lista de Compras</div></div>
+    <div class="etq roxo" style="border-style:solid"><div class="ico">🍽️</div><div class="nome" style="font-size:11px">Cardápio</div></div>
+  </div>
+
+  <div class="instrucoes" style="margin-top:20px">
+    <strong>💡 Dica da Tâmara:</strong> Imprima as etiquetas da despensa em papel adesivo e plastifique com fita transparente. Assim elas resistem à umidade e duram muito mais!
+  </div>
+
+  <div class="footer">
+    <p>🏠 Casa em Ordem · Por Tâmara Cavalcante · Material exclusivo</p>
+    <p style="margin-top:6px">Este material faz parte do order bump do Kit Casa em Ordem.</p>
+  </div>
+
+</div>
+</body>
+</html>
