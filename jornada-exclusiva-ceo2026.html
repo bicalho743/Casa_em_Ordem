@@ -82,7 +82,7 @@
 
   /* JOURNEY MAP */
   .journey{margin:28px 0}
-  .journey-step{display:flex;gap:16px;margin-bottom:0;position:relative}
+  .journey-step{display:flex;gap:16px;margin-bottom:0;position:relative;cursor:pointer}.journey-step:hover h4{color:var(--vm)}.journey-step::after{content:"→";position:absolute;right:4px;top:50%;transform:translateY(-50%);color:var(--vm);font-size:18px;font-weight:900;opacity:.3;transition:opacity .15s}.journey-step:hover::after{opacity:1}
   .journey-line{width:3px;background:linear-gradient(180deg,var(--vm),var(--vc));position:absolute;left:19px;top:42px;bottom:-2px}
   .journey-dot{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;flex-shrink:0;z-index:1}
   .journey-dot.done{background:var(--vm);color:white}
@@ -166,11 +166,11 @@
     <p>Você pode baixar os materiais em qualquer ordem, mas sugerimos este caminho para tirar o máximo proveito do método:</p>
 
     <div class="journey">
-      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot current">1</div><div class="journey-content"><span class="step-label">Passo 1 de 5</span><h4>Escolha seu Plano (A ou B)</h4><p>Leia o guia principal que mais combina com a sua rotina familiar</p></div></div>
-      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">2</div><div class="journey-content"><span class="step-label">Passo 2 de 5</span><h4>Monte sua rotina de limpeza</h4><p>Use os cards de limpeza e o planejamento semanal</p></div></div>
-      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">3</div><div class="journey-content"><span class="step-label">Passo 3 de 5</span><h4>Organize a alimentação</h4><p>Preencha o cardápio e a lista de compras</p></div></div>
-      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">4</div><div class="journey-content"><span class="step-label">Passo 4 de 5</span><h4>Configure suas agendas</h4><p>Imprima a agenda diária, semanal e mensal</p></div></div>
-      <div class="journey-step"><div class="journey-dot locked">5</div><div class="journey-content"><span class="step-label">Passo 5 de 5</span><h4>Aceite o Desafio dos 30 Dias</h4><p>Consolide todos os hábitos com o desafio progressivo</p></div></div>
+      <div class="journey-step" onclick="goToPage('planos')"><div class="journey-line"></div><div class="journey-dot current">1</div><div class="journey-content"><span class="step-label">Passo 1 de 5</span><h4>Escolha seu Plano (A ou B)</h4><p>Leia o guia principal que mais combina com a sua rotina familiar</p></div></div>
+      <div class="journey-step" onclick="goToPage('limpeza')"><div class="journey-line"></div><div class="journey-dot locked">2</div><div class="journey-content"><span class="step-label">Passo 2 de 5</span><h4>Monte sua rotina de limpeza</h4><p>Use os cards de limpeza e o planejamento semanal</p></div></div>
+      <div class="journey-step" onclick="goToPage('alimentacao')"><div class="journey-line"></div><div class="journey-dot locked">3</div><div class="journey-content"><span class="step-label">Passo 3 de 5</span><h4>Organize a alimentação</h4><p>Preencha o cardápio e a lista de compras</p></div></div>
+      <div class="journey-step" onclick="goToPage('agendas')"><div class="journey-line"></div><div class="journey-dot locked">4</div><div class="journey-content"><span class="step-label">Passo 4 de 5</span><h4>Configure suas agendas</h4><p>Imprima a agenda diária, semanal e mensal</p></div></div>
+      <div class="journey-step" onclick="goToPage('extras')"><div class="journey-dot locked">5</div><div class="journey-content"><span class="step-label">Passo 5 de 5</span><h4>Aceite o Desafio dos 30 Dias</h4><p>Consolide todos os hábitos com o desafio progressivo</p></div></div>
     </div>
 
     <div class="tip">💡 <strong>Dica:</strong> Imprima os materiais e cole em locais estratégicos da casa (geladeira, mural, porta do armário). A visualização constante é a chave para manter a rotina.</div>
@@ -413,31 +413,31 @@ function buildJourney() {
   const steps = [
     {
       num: 1,
-      title: 'Escolha seu Plano (A ou B)',
+      title: 'Escolha seu Plano (A ou B)',page:'planos',
       desc: 'Leia o guia principal que mais combina com a sua rotina familiar',
       check: () => downloaded.includes('plano-a-rotina-corrida') || downloaded.includes('plano-b-rotina-flexivel')
     },
     {
       num: 2,
-      title: 'Monte sua rotina de limpeza',
+      title: 'Monte sua rotina de limpeza',page:'limpeza',
       desc: 'Use os cards de limpeza e o planejamento semanal',
       check: () => downloaded.includes('cards-de-limpeza') || downloaded.includes('planejamento-de-limpeza') || downloaded.includes('limpeza-completo') || downloaded.includes('organizacao-por-comodos') || downloaded.includes('roteiro-salva-vidas')
     },
     {
       num: 3,
-      title: 'Organize a alimentação',
+      title: 'Organize a alimentação',page:'alimentacao',
       desc: 'Preencha o cardápio e a lista de compras',
       check: () => downloaded.includes('cardapio-refeicoes') || downloaded.includes('refeicoes-dias-uteis') || downloaded.includes('lista-de-compras') || downloaded.includes('controle-despensa') || downloaded.includes('controle-freezer')
     },
     {
       num: 4,
-      title: 'Configure suas agendas',
+      title: 'Configure suas agendas',page:'agendas',
       desc: 'Imprima a agenda diária, semanal e mensal',
       check: () => downloaded.includes('agenda-diaria') || downloaded.includes('agenda-semanal') || downloaded.includes('agenda-mensal')
     },
     {
       num: 5,
-      title: 'Aceite o Desafio dos 30 Dias',
+      title: 'Aceite o Desafio dos 30 Dias',page:'extras',
       desc: 'Consolide todos os hábitos com o desafio progressivo',
       check: () => downloaded.includes('desafio-30-dias') || downloaded.includes('rotina-do-pet')
     }
@@ -460,7 +460,7 @@ function buildJourney() {
     const lineHtml = idx < steps.length - 1 ? '<div class="journey-line"></div>' : '';
 
     html += `
-      <div class="journey-step">
+      <div class="journey-step" onclick="goToPage('${s.page}')">
         ${lineHtml}
         <div class="journey-dot ${statusClass}">${dotContent}</div>
         <div class="journey-content">
@@ -475,7 +475,7 @@ function buildJourney() {
   tracker.innerHTML = html;
 }
 
-function showPage(id, btn) {
+function goToPage(id){const btn=document.querySelector(`.sb-item[onclick*="'${id}'"]`);showPage(id,btn);window.scrollTo(0,0);}function showPage(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.sb-item').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
