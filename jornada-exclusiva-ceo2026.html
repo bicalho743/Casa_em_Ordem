@@ -44,7 +44,7 @@
   .page-hero .tag{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,.15);border-radius:50px;padding:4px 14px;display:inline-block;margin-bottom:14px}
   .page-hero h1{font-size:clamp(22px,3.5vw,34px);font-weight:900;line-height:1.2;margin-bottom:10px}
   .page-hero h1 em{color:#95D5B2;font-style:normal}
-  .page-hero p{font-size:14px;opacity:.85;max-width:500px}
+  .page-hero p{font-size:14px;opacity:.95;max-width:500px;color:#fff}
 
   /* CONTENT ELEMENTS */
   .subtitle{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
@@ -90,7 +90,7 @@
   .journey-dot.locked{background:#E8E8E8;color:#BBB}
   .journey-content{flex:1;padding-bottom:28px}
   .journey-content h4{font-size:15px;font-weight:800;color:var(--v);margin-bottom:4px}
-  .journey-content p{font-size:12px;color:#888;margin:0}
+  .journey-content p{font-size:12px;color:#888;margin:0}.journey-content .step-label{display:block;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--vm);margin-bottom:3px}
 
   /* RESPONSIVE */
   @media(max-width:768px){
@@ -166,10 +166,10 @@
     <p>Você pode baixar os materiais em qualquer ordem, mas sugerimos este caminho para tirar o máximo proveito do método:</p>
 
     <div class="journey">
-      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot current">1</div><div class="journey-content"><h4>Escolha seu Plano (A ou B)</h4><p>Leia o guia principal que mais combina com a sua rotina familiar</p></div></div>
-      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">2</div><div class="journey-content"><h4>Monte sua rotina de limpeza</h4><p>Use os cards de limpeza e o planejamento semanal</p></div></div>
-      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">3</div><div class="journey-content"><h4>Organize a alimentação</h4><p>Preencha o cardápio e a lista de compras</p></div></div>
-      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">4</div><div class="journey-content"><h4>Configure suas agendas</h4><p>Imprima a agenda diária, semanal e mensal</p></div></div>
+      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot current">1</div><div class="journey-content"><span class="step-label">Passo 1 de 5</span><h4>Escolha seu Plano (A ou B)</h4><p>Leia o guia principal que mais combina com a sua rotina familiar</p></div></div>
+      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">2</div><div class="journey-content"><span class="step-label">Passo 2 de 5</span><h4>Monte sua rotina de limpeza</h4><p>Use os cards de limpeza e o planejamento semanal</p></div></div>
+      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">3</div><div class="journey-content"><span class="step-label">Passo 3 de 5</span><h4>Organize a alimentação</h4><p>Preencha o cardápio e a lista de compras</p></div></div>
+      <div class="journey-step"><div class="journey-line"></div><div class="journey-dot locked">4</div><div class="journey-content"><span class="step-label">Passo 4 de 5</span><h4>Configure suas agendas</h4><p>Imprima a agenda diária, semanal e mensal</p></div></div>
       <div class="journey-step"><div class="journey-dot locked">5</div><div class="journey-content"><h4>Aceite o Desafio dos 30 Dias</h4><p>Consolide todos os hábitos com o desafio progressivo</p></div></div>
     </div>
 
@@ -464,7 +464,7 @@ function buildJourney() {
         ${lineHtml}
         <div class="journey-dot ${statusClass}">${dotContent}</div>
         <div class="journey-content">
-          <h4>${s.title}</h4>
+          <span class="step-label">Passo ${s.num} de ${steps.length}</span><h4>${s.title}</h4>
           <p>${s.desc}</p>
         </div>
       </div>
