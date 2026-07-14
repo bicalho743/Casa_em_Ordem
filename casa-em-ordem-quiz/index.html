@@ -49,14 +49,20 @@
   .timer .lbl { font-size:10px; color:#dfeee6; }
   .guarantee { display:flex; gap:12px; align-items:flex-start; background:rgba(63,174,122,0.15); border:1px solid rgba(63,174,122,0.4); border-radius:14px; padding:16px; margin-top:20px; font-size:13px; }
   .photo-card img { width:100%; border-radius:12px; display:block; margin-bottom:10px; }
+  .carousel { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:10px; border-radius:12px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .carousel::-webkit-scrollbar { display:none; }
+  .carousel img { width:100%; flex:0 0 100%; scroll-snap-align:center; border-radius:12px; display:block; margin-bottom:0; }
+  .carousel-dots { display:flex; justify-content:center; gap:6px; margin-top:10px; }
+  .carousel-dots .dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer; transition:background .2s ease; }
+  .carousel-dots .dot.active { background:#ffb08a; }
   </style>
  </head>
  <body>
   <div id="shell">
-   <div class="logo">CASA EM <span>ORDEM</span></div>div>
-  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div>div></div>div>
-  <div id="app"></div>div>
-  </div>div>
+   <div class="logo">CASA EM <span>ORDEM</span></div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div id="app"></div>
+  </div>
  
  <script>
   (function(){
@@ -227,8 +233,15 @@
        +'<div class="offer-item">✅ <strong>Área de membros com jornada guiada</strong> — passo a passo para saber por onde começar</div>'
       +'</div>'
       +'<div class="card photo-card" style="text-align:center">'
-      +'<img src="https://casa-em-ordem.vidaemmetodo.com.br/produto-casa-em-ordem.png" alt="Materiais reais do Kit Casa em Ordem impressos sobre uma mesa">'
-      +'<p class="body-txt" style="margin:0; font-size:13px; opacity:.85">Fotos reais dos materiais do kit — prontos para baixar e imprimir.</p>'
+      +'<div class="carousel" id="materialsCarousel">'
+       +'<img src="print-agenda-diaria.png" alt="Print real da Agenda Diária do Kit Casa em Ordem">'
+       +'<img src="print-agenda-semanal.png" alt="Print real da Agenda Semanal do Kit Casa em Ordem">'
+       +'<img src="print-cardapio-refeicoes.png" alt="Print real do Cardápio de Refeições do Kit Casa em Ordem">'
+       +'<img src="print-cards-de-limpeza.png" alt="Print real dos Cards de Limpeza do Kit Casa em Ordem">'
+       +'<img src="print-lista-de-compras.png" alt="Print real da Lista de Compras do Kit Casa em Ordem">'
+       +'</div>'
+       +'<div class="carousel-dots" id="carouselDots"></div>'
+       +'<p class="body-txt" style="margin:8px 0 0; font-size:13px; opacity:.85">Prints reais das páginas do kit — prontas para baixar e imprimir.</p>'
       +'</div>'
       +'<div class="price-box">'
       +'<div class="price-old">De R$97,00</div>'
@@ -245,9 +258,10 @@
     app.innerHTML = html;
     if (STEP===12) startLoading();
     if (STEP===15) startCountdown();
+    if (STEP===15) setupCarousel();
    }
 
-   function startLoading(){
+      function startLoading(){
     let p = 0;
     const bar = document.getElementById('loadBar');
     const timer = setInterval(function(){
@@ -271,6 +285,28 @@
     }
     tick();
     setInterval(tick, 1000);
+   }
+
+   function setupCarousel(){
+    const track = document.getElementById('materialsCarousel');
+    const dotsWrap = document.getElementById('carouselDots');
+    if(!track || !dotsWrap) return;
+    const imgs = track.querySelectorAll('img');
+    dotsWrap.innerHTML = '';
+    imgs.forEach(function(_, i){
+     const dot = document.createElement('span');
+     dot.className = 'dot' + (i===0 ? ' active' : '');
+     dot.addEventListener('click', function(){
+      track.scrollTo({ left: track.clientWidth * i, behavior: 'smooth' });
+     });
+     dotsWrap.appendChild(dot);
+    });
+    track.addEventListener('scroll', function(){
+     const idx = Math.round(track.scrollLeft / track.clientWidth);
+     Array.prototype.forEach.call(dotsWrap.children, function(dot, i){
+      dot.classList.toggle('active', i===idx);
+     });
+    });
    }
 
    app.addEventListener('click', function(e){
