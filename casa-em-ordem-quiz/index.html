@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Diagnóstico | Casa em Ordem</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnóstico | Casa em Ordem</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+ <style>
   * { box-sizing: border-box; }
   body { margin:0; font-family:'Quicksand', sans-serif; background: linear-gradient(160deg,#12432f,#1e6b4a); color:#fff; min-height:100vh; }
   #shell { max-width:520px; margin:0 auto; padding:28px 20px 60px; min-height:100vh; }
@@ -48,202 +48,232 @@
   .timer .num { font-size:24px; font-weight:700; color:#ffb08a; }
   .timer .lbl { font-size:10px; color:#dfeee6; }
   .guarantee { display:flex; gap:12px; align-items:flex-start; background:rgba(63,174,122,0.15); border:1px solid rgba(63,174,122,0.4); border-radius:14px; padding:16px; margin-top:20px; font-size:13px; }
-</style>
-</head>
-<body>
-<div id="shell">
-  <div class="logo">CASA EM <span>ORDEM</span></div>
-  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-  <div id="app"></div>
-</div>
+  .photo-card img { width:100%; border-radius:12px; display:block; margin-bottom:10px; }
+  </style>
+ </head>
+ <body>
+  <div id="shell">
+   <div class="logo">CASA EM <span>ORDEM</span></div>div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div>div></div>div>
+  <div id="app"></div>div>
+  </div>div>
+ 
+ <script>
+  (function(){
+   const app = document.getElementById('app');
+   const progressFill = document.getElementById('progressFill');
+   let STEP = 0;
+   const ANSWERS = {};
+   const QUIZ_STEPS = 12;
 
-<script>
-(function(){
-  const app = document.getElementById('app');
-  const progressFill = document.getElementById('progressFill');
-  let STEP = 0;
-  const ANSWERS = {};
-  const QUIZ_STEPS = 10;
+   // ATENÇÃO: troque pela data REAL do fim da sua promoção
+   const DEADLINE = new Date('2026-07-15T23:59:59');
 
-  // ATENÇÃO: troque pela data REAL do fim da sua promoção
-  const DEADLINE = new Date('2026-07-15T23:59:59');
+   // ATENÇÃO: troque pelo link REAL de checkout (Kiwify)
+   const CHECKOUT_URL = 'https://pay.kiwify.com.br/JuDImie';
 
-  // ATENÇÃO: troque pelo link REAL de checkout (Kiwify)
-  const CHECKOUT_URL = 'https://pay.kiwify.com.br/JuDImie';
-
-  function setProgress(){
+   function setProgress(){
     let pct = STEP <= QUIZ_STEPS-1 ? Math.round((STEP/(QUIZ_STEPS-1))*100) : 100;
     progressFill.style.width = pct + '%';
-  }
+   }
 
-  function optHTML(emoji, label, action, value){
+   function optHTML(emoji, label, action, value){
     return '<div class="opt" data-action="'+action+'" data-value="'+value+'"><span class="emoji">'+emoji+'</span><span>'+label+'</span></div>';
-  }
+   }
 
-  function render(){
+   function render(){
     setProgress();
     let html = '';
     switch(STEP){
-      case 0:
-        html = '<div class="eyebrow">Responda com sinceridade</div>'
-        +'<h1 class="q">Hoje, sua casa te dá mais paz ou mais peso?</h1>'
-        +optHTML('😮‍💨','Mais peso, se eu for sincera','q1','peso')
-        +optHTML('😔','Vivo tentando e nunca fica pronto','q1','tentando')
-        +optHTML('🤍','Tem dias bons e dias difíceis','q1','misto')
-        +optHTML('🙂','Tá ok, mas quero mais leveza','q1','ok');
-        break;
-      case 1:
-        html = '<div class="eyebrow">Você não está sozinha nisso</div>'
-        +'<h1 class="q">A maioria das mulheres sente exatamente isso</h1>'
-        +'<div class="card"><div class="stat-row">'
-        +'<div><div class="stat-num">78%</div><div class="stat-label">sentem que a casa nunca fica pronta</div></div>'
-        +'<div><div class="stat-num">62%</div><div class="stat-label">sentem culpa quase todo dia</div></div>'
-        +'</div></div>'
-        +'<p class="body-txt">A boa notícia: isso não é falta de esforço. É falta de um sistema que caiba na sua rotina real.</p>'
-        +'<div class="btn" data-action="next">Quero entender melhor</div>';
-        break;
-      case 2:
-        html = '<div class="eyebrow">Pergunta 1 de 5</div>'
-        +'<h1 class="q">Quem mais te ajuda na rotina da casa?</h1>'
-        +optHTML('🙋‍♀️','Praticamente ninguém, sou só eu','q2','sozinha')
-        +optHTML('🤝','Peço ajuda às vezes','q2','as_vezes')
-        +optHTML('👨‍👩‍👧','Dividimos, mas falta organização','q2','divide')
-        +optHTML('👶','Tenho filhos pequenos e a rotina é corrida','q2','filhos');
-        break;
-      case 3:
-        html = '<div class="eyebrow">Pergunta 2 de 5</div>'
-        +'<h1 class="q">O que mais pesa no seu dia a dia?</h1>'
-        +optHTML('🧹','A limpeza que nunca acaba','q3','limpeza')
-        +optHTML('🥘','Não saber o que fazer de comida','q3','cozinha')
-        +optHTML('👕','Roupa e louça acumulando','q3','roupa')
-        +optHTML('⏰','Falta de tempo pra tudo','q3','tempo');
-        break;
-      case 4:
-        html = '<div class="eyebrow">A verdade que ninguém te conta</div>'
-        +'<h1 class="q">Não falta esforço. Falta um método que caiba na sua rotina.</h1>'
-        +'<p class="body-txt">Com um passo a passo pronto — sem exigir perfeição — manter a casa em ordem vira algo simples e sustentável, não mais um peso na sua lista.</p>'
-        +'<div class="btn" data-action="next">Faz sentido pra mim</div>';
-        break;
-      case 5:
-        html = '<div class="eyebrow">Pergunta 3 de 5</div>'
-        +'<h1 class="q">Qual frase combina mais com a sua rotina hoje?</h1>'
-        +optHTML('💼','Trabalho fora e chego exausta pra cuidar de casa','perfil','A')
-        +optHTML('🏠','Fico em casa e mesmo assim não dou conta de tudo','perfil','B');
-        break;
-      case 6:
-        html = '<div class="eyebrow">Pergunta 4 de 5</div>'
-        +'<h1 class="q">Qual seria sua maior vitória daqui a 30 dias?</h1>'
-        +optHTML('🏡','Casa em ordem sem sofrer por isso','q5','ordem')
-        +optHTML('🍲','Nunca mais travar na hora de cozinhar','q5','cozinha')
-        +optHTML('🕊️','Ter tempo de verdade pra mim','q5','tempo')
-        +optHTML('💪','Sentir orgulho da minha casa','q5','orgulho');
-        break;
-      case 7:
-        html = '<div class="eyebrow">Imagine daqui 30 dias</div>'
-        +'<h1 class="q">Como seria sua vida se...</h1>'
-        +'<div class="card"><strong>🏠 A casa se mantém sozinha</strong><p class="body-txt" style="margin:6px 0 0">Uma rotina curta e constante substitui o faxinão do fim de semana.</p></div>'
-        +'<div class="card"><strong>🥦 A cozinha deixa de ser um problema</strong><p class="body-txt" style="margin:6px 0 0">Cardápio pronto, lista de compras certa, sem perder tempo pensando.</p></div>'
-        +'<div class="card"><strong>🕊️ Sobra tempo pra você</strong><p class="body-txt" style="margin:6px 0 0">Menos tempo apagando incêndio, mais tempo de descanso real.</p></div>'
-        +'<div class="btn" data-action="next">Eu quero essa vida</div>';
-        break;
-      case 8:
-        html = '<div class="eyebrow">De que lado você quer estar?</div>'
-        +'<h1 class="q">Sem o método x Com o método</h1>'
-        +'<div class="compare-grid">'
-        +'<div class="compare-col before"><h4>❌ Sem método</h4><ul><li>Faxinão pesado no fim de semana</li><li>Culpa constante</li><li>Ninguém ajuda de verdade</li><li>Fim de semana consumido</li></ul></div>'
-        +'<div class="compare-col after"><h4>✅ Com o método</h4><ul><li>15 min por dia no lugar de horas</li><li>Rotina que cabe na sua realidade</li><li>Família com tarefas simples</li><li>Fim de semana de descanso</li></ul></div>'
-        +'</div>'
-        +'<div class="btn" data-action="next">Quero esse lado</div>';
-        break;
-      case 9:
-        html = '<div class="eyebrow">Pergunta 5 de 5</div>'
-        +'<h1 class="q">Se existisse um caminho simples e acessível, você começaria hoje?</h1>'
-        +optHTML('🔥','Sim, já decidi','q6','decidida')
-        +optHTML('💗','Sim, se for fácil de seguir','q6','facil')
-        +optHTML('✅','Com certeza, já passou da hora','q6','certeza');
-        break;
-      case 10:
-        html = '<div class="loader-wrap">'
-        +'<h1 class="q" style="text-align:center">Preparando seu diagnóstico personalizado</h1>'
-        +'<div class="bar-outer"><div class="bar-inner" id="loadBar"></div></div>'
-        +'<p class="body-txt" style="text-align:center" id="loadLabel">Analisando suas respostas...</p>'
-        +'</div>';
-        break;
-      case 11: {
-        const perfilA = ANSWERS.perfil === 'A';
-        const titulo = perfilA ? 'ROTINA CORRIDA — QUEM TRABALHA FORA' : 'CASA EM TEMPO INTEGRAL — QUEM FICA EM CASA';
-        const plano = perfilA ? 'Plano A' : 'Plano B';
-        html = '<div class="eyebrow">Seu diagnóstico está pronto</div>'
-        +'<p class="body-txt">Seu perfil:</p>'
-        +'<div class="result-badge"><h2>'+titulo+'</h2>'
-        +'<p class="body-txt" style="margin-bottom:0">O Casa em Ordem tem um guia específico pra você: o <strong>'+plano+'</strong>, pensado exatamente pra sua rotina.</p></div>'
-        +'<div class="card"><strong>O que o Casa em Ordem resolve pra você:</strong>'
-        +'<p class="body-txt" style="margin:10px 0 0">◆ Uma rotina de limpeza que se mantém sozinha<br>◆ Cardápio e compras sem perder tempo pensando<br>◆ Fim da culpa por não dar conta de tudo</p></div>'
-        +'<div class="btn" data-action="next">Ver minha solução</div>';
-        break;
-      }
-      case 12:
-        html = '<h1 class="q">Com a palavra, quem já organizou a casa:</h1>'
-        +'<div class="testi-card">"Eu vivia exausta tentando dar conta de tudo sozinha. Com o método, em duas semanas minha casa já estava diferente e eu, mais leve." - Fernanda R.</div>'
-        +'<div class="testi-card">"Trabalho fora o dia inteiro e achava impossível chegar em casa e ainda organizar tudo. As agendas prontas mudaram minha rotina." - Camila S.</div>'
-        +'<div class="testi-card">"Parei de sentir culpa toda vez que olhava pra casa bagunçada. Hoje sigo o passo a passo e sobra tempo pra mim." - Juliana A.</div>'
-        +'<div class="btn" data-action="next">Eu quero isso também</div>';
-        break;
-      case 13: {
-        html = '<h1 class="q" style="text-align:center">KIT COMPLETO CASA EM ORDEM</h1>'
-        +'<p class="body-txt" style="text-align:center">Tudo pra sua casa rodar no automático, sem culpa e sem perfeição.</p>'
-        +'<div class="card">'
-        +'<div class="offer-item">✅ Plano A + Plano B (dois guias completos)</div>'
-        +'<div class="offer-item">✅ Agendas diária, semanal e mensal</div>'
-        +'<div class="offer-item">✅ Cardápio, lista de compras e controle de estoque</div>'
-        +'<div class="offer-item">✅ Cards de limpeza e roteiro de emergência</div>'
-        +'<div class="offer-item">✅ Desafio dos 30 Dias + Rotina do Pet</div>'
-        +'<div class="offer-item">✅ Acesso imediato após a compra</div>'
-        +'</div>'
-        +'<div class="price-box">'
-        +'<div class="price-old">De R$97,00</div>'
-        +'<div class="price-new">R$49,90</div>'
-        +'<div class="body-txt" style="margin:0">ou em até 6x de R$8,87 no cartão</div>'
-        +'<p style="color:#ffb08a; font-weight:700; font-size:13px; margin-top:14px">⏳ Esta condição especial termina em:</p>'
-        +'<div class="timer"><div class="box"><div class="num" id="td">-</div><div class="lbl">DIAS</div></div><div class="box"><div class="num" id="th">-</div><div class="lbl">HORAS</div></div><div class="box"><div class="num" id="tm">-</div><div class="lbl">MIN</div></div><div class="box"><div class="num" id="ts">-</div><div class="lbl">SEG</div></div></div>'
-        +'<a class="btn" href="'+CHECKOUT_URL+'">Quero organizar minha casa →</a>'
-        +'</div>'
-        +'<div class="guarantee">🛡️ <div><strong>Garantia de 7 dias.</strong> Se não amar, devolvemos 100% do seu dinheiro, sem perguntas.</div></div>';
-        break;
-      }
+     case 0:
+      html = '<div class="eyebrow">Diagnóstico rápido</div>'
+      +'<h1 class="q">Sua casa está facilitando ou pesando na sua rotina?</h1>'
+      +'<p class="body-txt">Responda 6 perguntas rápidas e descubra o que está impedindo você de manter a casa organizada sem se esgotar.</p>'
+      +'<div class="btn" data-action="next">Começar meu diagnóstico</div>'
+      +'<p class="body-txt" style="text-align:center; opacity:.75; margin-top:10px; margin-bottom:0">Leva menos de 1 minuto.</p>';
+      break;
+     case 1:
+      html = '<div class="eyebrow">Responda com sinceridade</div>'
+      +'<h1 class="q">Hoje, sua casa te dá mais paz ou mais peso?</h1>'
+      +optHTML('😮\u200d💨','Mais peso, se eu for sincera','q1','peso')
+      +optHTML('😔','Vivo tentando e nunca fica pronto','q1','tentando')
+      +optHTML('🤍','Tem dias bons e dias difíceis','q1','misto')
+      +optHTML('🙂','Tá ok, mas quero mais leveza','q1','ok');
+      break;
+     case 2:
+      html = '<div class="eyebrow">Você não está sozinha nisso</div>'
+      +'<h1 class="q">A maioria das mulheres sente exatamente isso</h1>'
+      +'<div class="card"><div class="stat-row">'
+      +'<div><div class="stat-num">78%</div><div class="stat-label">sentem que a casa nunca fica pronta</div></div>'
+      +'<div><div class="stat-num">62%</div><div class="stat-label">sentem culpa quase todo dia</div></div>'
+      +'</div></div>'
+      +'<p class="body-txt">A boa notícia: isso não é falta de esforço. É falta de um sistema que caiba na sua rotina real.</p>'
+      +'<div class="btn" data-action="next">Quero entender melhor</div>';
+      break;
+     case 3:
+      html = '<div class="eyebrow">Pergunta 1 de 6</div>'
+      +'<h1 class="q">Quem mais te ajuda na rotina da casa?</h1>'
+      +optHTML('🙋\u200d♀️','Praticamente ninguém, sou só eu','q2','sozinha')
+      +optHTML('🤝','Peço ajuda às vezes','q2','as_vezes')
+      +optHTML('👨\u200d👩\u200d👧','Dividimos, mas falta organização','q2','divide')
+      +optHTML('👶','Tenho filhos pequenos e a rotina é corrida','q2','filhos');
+      break;
+     case 4:
+      html = '<div class="eyebrow">Pergunta 2 de 6</div>'
+      +'<h1 class="q">O que mais pesa no seu dia a dia?</h1>'
+      +optHTML('🧹','A limpeza que nunca acaba','q3','limpeza')
+      +optHTML('🥘','Não saber o que fazer de comida','q3','cozinha')
+      +optHTML('👕','Roupa e louça acumulando','q3','roupa')
+      +optHTML('⏰','Falta de tempo pra tudo','q3','tempo');
+      break;
+     case 5:
+      html = '<div class="eyebrow">A verdade que ninguém te conta</div>'
+      +'<h1 class="q">Não falta esforço. Falta um método que caiba na sua rotina.</h1>'
+      +'<p class="body-txt">Com um passo a passo pronto — sem exigir perfeição — manter a casa em ordem vira algo simples e sustentável, não mais um peso na sua lista.</p>'
+      +'<div class="btn" data-action="next">Faz sentido pra mim</div>';
+      break;
+     case 6:
+      html = '<div class="eyebrow">Pergunta 3 de 6</div>'
+      +'<h1 class="q">O que normalmente acontece quando você tenta organizar sua rotina?</h1>'
+      +optHTML('🔄','Começo, mas não consigo manter','q4','comeco_nao_mantem')
+      +optHTML('🤷\u200d♀️','Não sei por onde começar','q4','nao_sei_comecar')
+      +optHTML('😮\u200d💨','Faço tudo sozinha e fico exausta','q4','sozinha_exausta')
+      +optHTML('👪','Minha família não segue a organização','q4','familia_nao_segue')
+      +optHTML('⏳','Falta tempo para colocar os planos em prática','q4','falta_tempo');
+      break;
+     case 7:
+      html = '<div class="eyebrow">Pergunta 4 de 6</div>'
+      +'<h1 class="q">Qual frase combina mais com a sua rotina hoje?</h1>'
+      +optHTML('💼','Trabalho fora e chego exausta pra cuidar de casa','perfil','A')
+      +optHTML('🏠','Fico em casa e mesmo assim não dou conta de tudo','perfil','B');
+      break;
+     case 8:
+      html = '<div class="eyebrow">Pergunta 5 de 6</div>'
+      +'<h1 class="q">Qual seria sua maior vitória daqui a 30 dias?</h1>'
+      +optHTML('🏡','Casa em ordem sem sofrer por isso','q5','ordem')
+      +optHTML('🍲','Nunca mais travar na hora de cozinhar','q5','cozinha')
+      +optHTML('🕊️','Ter tempo de verdade pra mim','q5','tempo')
+      +optHTML('💪','Sentir orgulho da minha casa','q5','orgulho');
+      break;
+     case 9:
+      html = '<div class="eyebrow">Imagine daqui 30 dias</div>'
+      +'<h1 class="q">Como seria sua vida se...</h1>'
+      +'<div class="card"><strong>🏠 A casa se mantém sozinha</strong><p class="body-txt" style="margin:6px 0 0">Uma rotina curta e constante substitui o faxinão do fim de semana.</p></div>'
+      +'<div class="card"><strong>🥦 A cozinha deixa de ser um problema</strong><p class="body-txt" style="margin:6px 0 0">Cardápio pronto, lista de compras certa, sem perder tempo pensando.</p></div>'
+      +'<div class="card"><strong>🕊️ Sobra tempo pra você</strong><p class="body-txt" style="margin:6px 0 0">Menos tempo apagando incêndio, mais tempo de descanso real.</p></div>'
+      +'<div class="btn" data-action="next">Eu quero essa vida</div>';
+      break;
+     case 10:
+      html = '<div class="eyebrow">De que lado você quer estar?</div>'
+      +'<h1 class="q">Sem o método x Com o método</h1>'
+      +'<div class="compare-grid">'
+      +'<div class="compare-col before"><h4>❌ Sem método</h4><ul><li>Faxinão pesado no fim de semana</li><li>Culpa constante</li><li>Ninguém ajuda de verdade</li><li>Fim de semana consumido</li></ul></div>'
+      +'<div class="compare-col after"><h4>✅ Com o método</h4><ul><li>15 min por dia no lugar de horas</li><li>Rotina que cabe na sua realidade</li><li>Família com tarefas simples</li><li>Fim de semana de descanso</li></ul></div>'
+      +'</div>'
+      +'<div class="btn" data-action="next">Quero esse lado</div>';
+      break;
+     case 11:
+      html = '<div class="eyebrow">Pergunta 6 de 6</div>'
+      +'<h1 class="q">Se existisse um caminho simples e acessível, você começaria hoje?</h1>'
+      +optHTML('🔥','Sim, já decidi','q6','decidida')
+      +optHTML('💗','Sim, se for fácil de seguir','q6','facil')
+      +optHTML('✅','Com certeza, já passou da hora','q6','certeza');
+      break;
+     case 12:
+      html = '<div class="loader-wrap">'
+      +'<h1 class="q" style="text-align:center">Preparando seu diagnóstico personalizado</h1>'
+      +'<div class="bar-outer"><div class="bar-inner" id="loadBar"></div></div>'
+      +'<p class="body-txt" style="text-align:center" id="loadLabel">Analisando suas respostas...</p>'
+      +'</div>';
+      break;
+     case 13: {
+      const perfilA = ANSWERS.perfil === 'A';
+      const titulo = perfilA ? 'ROTINA CORRIDA — QUEM TRABALHA FORA' : 'CASA EM TEMPO INTEGRAL — QUEM FICA EM CASA';
+      const plano = perfilA ? 'Plano A' : 'Plano B';
+      const dorMap = {
+       comeco_nao_mantem: 'Pelas suas respostas, você não precisa se esforçar mais. Você precisa de uma rotina que se sustente sozinha, sem depender de força de vontade todos os dias.',
+       nao_sei_comecar: 'Pelas suas respostas, seu problema não é falta de vontade. É a falta de um ponto de partida claro — um passo a passo que mostre exatamente por onde começar.',
+       sozinha_exausta: 'Pelas suas respostas, você não precisa dar conta de tudo sozinha. Você precisa de um sistema que distribua as tarefas ao longo dos dias, sem sobrecarregar um único momento.',
+       familia_nao_segue: 'Pelas suas respostas, o problema não é a falta de ajuda da família. É a falta de tarefas simples e claras que qualquer pessoa em casa consiga seguir.',
+       falta_tempo: 'Pelas suas respostas, você não precisa de mais tempo. Você precisa de tarefas mais curtas, que caibam nos minutos que já existem no seu dia.'
+      };
+      const diagnostico = dorMap[ANSWERS.q4] || 'Pelas suas respostas, você não precisa se esforçar mais. Você precisa de uma rotina que distribua as tarefas e mostre claramente o que fazer em cada momento.';
+      html = '<div class="eyebrow">Seu diagnóstico está pronto</div>'
+      +'<p class="body-txt">Seu perfil:</p>'
+      +'<div class="result-badge"><h2>'+titulo+'</h2>'
+      +'<p class="body-txt" style="margin-bottom:0">O Casa em Ordem tem um guia específico pra você: o <strong>'+plano+'</strong>, pensado exatamente pra sua rotina.</p></div>'
+      +'<div class="card"><p class="body-txt" style="margin:0">'+diagnostico+'</p></div>'
+      +'<p class="body-txt">Foi exatamente para resolver isso que a Tâmara criou o Casa em Ordem.</p>'
+      +'<div class="btn" data-action="next">Ver minha solução</div>';
+      break;
+     }
+     case 14:
+      html = '<h1 class="q">Com a palavra, quem já organizou a casa:</h1>'
+      +'<div class="testi-card">"Eu vivia exausta tentando dar conta de tudo sozinha. Com o método, em duas semanas minha casa já estava diferente e eu, mais leve." - Fernanda R.</div>'
+      +'<div class="testi-card">"Trabalho fora o dia inteiro e achava impossível chegar em casa e ainda organizar tudo. As agendas prontas mudaram minha rotina." - Camila S.</div>'
+      +'<div class="testi-card">"Parei de sentir culpa toda vez que olhava pra casa bagunçada. Hoje sigo o passo a passo e sobra tempo pra mim." - Juliana A.</div>'
+      +'<div class="btn" data-action="next">Eu quero isso também</div>';
+      break;
+     case 15: {
+      html = '<h1 class="q" style="text-align:center">KIT COMPLETO CASA EM ORDEM</h1>'
+      +'<p class="body-txt" style="text-align:center">Tudo pra sua casa rodar no automático, sem culpa e sem perfeição.</p>'
+      +'<div class="card">'
+      +'<div class="offer-item">✅ <strong>Planejador semanal</strong> — para organizar as prioridades da semana</div>'
+      +'<div class="offer-item">✅ <strong>Cardápio de refeições</strong> — para não travar na hora de cozinhar</div>'
+      +'<div class="offer-item">✅ <strong>Cards de limpeza</strong> por cômodo — sem faxinão pesado no fim de semana</div>'
+      +'<div class="offer-item">✅ <strong>Lista de compras</strong> — para não esquecer nem desperdiçar</div>'
+      +'<div class="offer-item">✅ Agendas diária, semanal e mensal</div>'
+      +'<div class="offer-item">✅ Plano A + Plano B (dois guias completos) + Desafio 30 Dias e Rotina do Pet</div>'
+      +'<div class="offer-item">✅ Acesso imediato após a compra</div>'
+      +'</div>'
+      +'<div class="card photo-card" style="text-align:center">'
+      +'<img src="https://casa-em-ordem.vidaemmetodo.com.br/produto-casa-em-ordem.png" alt="Materiais reais do Kit Casa em Ordem impressos sobre uma mesa">'
+      +'<p class="body-txt" style="margin:0; font-size:13px; opacity:.85">Fotos reais dos materiais do kit — prontos para baixar e imprimir.</p>'
+      +'</div>'
+      +'<div class="price-box">'
+      +'<div class="price-old">De R$97,00</div>'
+      +'<div class="price-new">R$49,90</div>'
+      +'<div class="body-txt" style="margin:0">ou em até 6x de R$8,87 no cartão</div>'
+      +'<p style="color:#ffb08a; font-weight:700; font-size:13px; margin-top:14px">⏳ Esta condição especial termina em:</p>'
+      +'<div class="timer"><div class="box"><div class="num" id="td">-</div><div class="lbl">DIAS</div></div><div class="box"><div class="num" id="th">-</div><div class="lbl">HORAS</div></div><div class="box"><div class="num" id="tm">-</div><div class="lbl">MIN</div></div><div class="box"><div class="num" id="ts">-</div><div class="lbl">SEG</div></div></div>'
+      +'<a class="btn" href="'+CHECKOUT_URL+'">Quero organizar minha casa →</a>'
+      +'</div>'
+      +'<div class="guarantee">🛡️ <div><strong>Garantia de 7 dias.</strong> Se não amar, devolvemos 100% do seu dinheiro, sem perguntas.</div></div>';
+      break;
+     }
     }
     app.innerHTML = html;
-    if (STEP===10) startLoading();
-    if (STEP===13) startCountdown();
-  }
+    if (STEP===12) startLoading();
+    if (STEP===15) startCountdown();
+   }
 
-  function startLoading(){
+   function startLoading(){
     let p = 0;
     const bar = document.getElementById('loadBar');
     const timer = setInterval(function(){
-      p += Math.random()*18+8;
-      if(p>=100){ p=100; clearInterval(timer); setTimeout(function(){ STEP=11; render(); }, 500); }
-      bar.style.width = p+'%';
+     p += Math.random()*18+8;
+     if(p>=100){ p=100; clearInterval(timer); setTimeout(function(){ STEP=13; render(); }, 500); }
+     bar.style.width = p+'%';
     }, 300);
-  }
+   }
 
-  function startCountdown(){
+   function startCountdown(){
     function tick(){
-      const now = new Date();
-      let diff = DEADLINE - now;
-      if(diff<0) diff=0;
-      const d = Math.floor(diff/(1000*60*60*24));
-      const h = Math.floor((diff/(1000*60*60))%24);
-      const m = Math.floor((diff/(1000*60))%60);
-      const s = Math.floor((diff/1000)%60);
-      const td=document.getElementById('td'), th=document.getElementById('th'), tm=document.getElementById('tm'), ts=document.getElementById('ts');
-      if(td){ td.textContent=d; th.textContent=String(h).padStart(2,'0'); tm.textContent=String(m).padStart(2,'0'); ts.textContent=String(s).padStart(2,'0'); }
+     const now = new Date();
+     let diff = DEADLINE - now;
+     if(diff<0) diff=0;
+     const d = Math.floor(diff/(1000*60*60*24));
+     const h = Math.floor((diff/(1000*60*60))%24);
+     const m = Math.floor((diff/(1000*60))%60);
+     const s = Math.floor((diff/1000)%60);
+     const td=document.getElementById('td'), th=document.getElementById('th'), tm=document.getElementById('tm'), ts=document.getElementById('ts');
+     if(td){ td.textContent=d; th.textContent=String(h).padStart(2,'0'); tm.textContent=String(m).padStart(2,'0'); ts.textContent=String(s).padStart(2,'0'); }
     }
     tick();
     setInterval(tick, 1000);
-  }
+   }
 
-  app.addEventListener('click', function(e){
+   app.addEventListener('click', function(e){
     const el = e.target.closest('[data-action]');
     if(!el) return;
     const action = el.getAttribute('data-action');
@@ -252,10 +282,10 @@
     ANSWERS[action] = value;
     STEP++;
     render();
-  });
+   });
 
-  render();
-})();
-</script>
-</body>
+   render();
+  })();
+ </script>
+ </body>
 </html>
