@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /jornada-exclusiva-ceo2026
+Disallow: /jornada-exclusiva-ceo2026.html
+Disallow: /pdfs/
+Disallow: /PDFs%20atualizados/
+Disallow: /Casa%20em%20ordem/

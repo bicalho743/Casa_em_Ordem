@@ -255,8 +255,6 @@
       +'<div class="price-old">De R$97,00</div>'
       +'<div class="price-new">R$49,90</div>'
       +'<div class="body-txt" style="margin:0">ou em até 6x de R$8,87 no cartão</div>'
-      +'<p style="color:#ffb08a; font-weight:700; font-size:13px; margin-top:14px">⏳ Esta condição especial termina em:</p>'
-      +'<div class="timer"><div class="box"><div class="num" id="td">-</div><div class="lbl">DIAS</div></div><div class="box"><div class="num" id="th">-</div><div class="lbl">HORAS</div></div><div class="box"><div class="num" id="tm">-</div><div class="lbl">MIN</div></div><div class="box"><div class="num" id="ts">-</div><div class="lbl">SEG</div></div></div>'
       +'<a class="btn" href="'+CHECKOUT_URL+'">Quero organizar minha casa →</a>'
       +'</div>'
       +'<div class="guarantee">🛡️ <div><strong>Garantia de 7 dias.</strong> Se não amar, devolvemos 100% do seu dinheiro, sem perguntas.</div></div>';
@@ -265,7 +263,6 @@
     }
     app.innerHTML = html;
     if (STEP===12) startLoading();
-    if (STEP===15) startCountdown();
     if (STEP===15) setupCarousel();
    }
 
