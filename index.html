@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Meta Pixel Code - LP Normal Casa em Ordem -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '26860613193616264');
+fbq('init', '3613700275452878');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: 'Landing Page Casa em Ordem',
+  content_category: 'Produtos'
+});
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=26860613193616264&ev=PageView&noscript=1"/>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3613700275452878&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa em Ordem — Organize sua casa e sua vida com leveza</title>
@@ -8,7 +31,7 @@
 <meta property="og:title" content="Casa em Ordem — Organize sua casa e sua vida com leveza">
 <meta property="og:description" content="Kit com 17 materiais práticos para organizar a rotina da sua casa e da sua família.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://bicalho743.github.io/Casa_em_Ordem/produto-casa-em-ordem.png">
+<meta property="og:image" content="https://bicalho743.github.io/casa-em-ordem/produto-casa-em-ordem.png">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -390,5 +413,34 @@
   <p style="margin-top:8px"><a href="privacidade.html" style="color:inherit">Política de Privacidade</a> · <a href="termos.html" style="color:inherit">Termos de Uso</a> · <a href="mailto:corujalabs.dev@gmail.com" style="color:inherit">corujalabs.dev@gmail.com</a></p>
 </footer>
 
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+  utmKeys.forEach(function(key) {
+    var val = params.get(key);
+    if (val) sessionStorage.setItem('utm_' + key, val);
+  });
+  var parts = [];
+  utmKeys.forEach(function(key) {
+    var val = sessionStorage.getItem('utm_' + key);
+    if (val) parts.push(key + '=' + encodeURIComponent(val));
+  });
+  document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach(function(link) {
+    if (parts.length > 0) {
+      link.href = link.href.split('?')[0] + '?' + parts.join('&');
+    }
+    link.addEventListener('click', function() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Casa em Ordem',
+          value: 49.90,
+          currency: 'BRL'
+        });
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

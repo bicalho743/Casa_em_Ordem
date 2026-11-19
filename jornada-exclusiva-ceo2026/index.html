@@ -66,6 +66,8 @@
   .pdf-card p{font-size:12px;color:#888;margin:0;line-height:1.5}
   .pdf-card .dl-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:var(--v);color:white;padding:8px 16px;border-radius:50px;font-size:11px;font-weight:800;text-decoration:none;transition:background .2s}
   .pdf-card .dl-btn:hover{background:var(--vm)}
+  .dl-btn-zip{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:#F39C12;color:white;padding:12px 24px;border-radius:50px;font-size:13px;font-weight:900;text-decoration:none;transition:all .2s;box-shadow:0 4px 15px rgba(243,156,18,.3)}
+  .dl-btn-zip:hover{background:#E67E22;transform:translateY(-2px);box-shadow:0 6px 20px rgba(243,156,18,.4)}
 
   /* CATEGORY SECTIONS */
   .cat-section{margin-bottom:40px}
@@ -152,6 +154,7 @@
       <span class="tag">✨ Bem-vinda ao seu espaço</span>
       <h1>Sua jornada para uma <em>casa organizada</em> começa aqui</h1>
       <p>Aqui você encontra todos os materiais, PDFs e ferramentas para transformar a rotina da sua família — no seu ritmo.</p>
+      <a class="dl-btn-zip" href="../pdfs/casa-em-ordem-todos-os-materiais.zip" download onclick="markAllDownloaded()">⚡ Baixar Todos os 17 PDFs (.ZIP)</a>
     </div>
 
     <div class="stats">
@@ -199,13 +202,13 @@
         <div class="pdf-icon">📗</div>
         <h4>Plano A — Casa Em Ordem</h4>
         <p>Para famílias com rotina de trabalho fora de casa. Blocos de 10-15 min, manhã e noite.</p>
-        <a class="dl-btn" href="pdfs/plano-a-rotina-corrida.pdf" download onclick="markDownloaded('plano-a-rotina-corrida')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/plano-a-rotina-corrida.pdf" download onclick="markDownloaded('plano-a-rotina-corrida')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="plano-b-rotina-flexivel">
         <div class="pdf-icon">📕</div>
         <h4>Plano B — Casa Organizada</h4>
         <p>Para quem tem horários flexíveis ou trabalha em casa. Micro-blocos distribuídos ao longo do dia.</p>
-        <a class="dl-btn" href="pdfs/plano-b-rotina-flexivel.pdf" download onclick="markDownloaded('plano-b-rotina-flexivel')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/plano-b-rotina-flexivel.pdf" download onclick="markDownloaded('plano-b-rotina-flexivel')">⬇ Baixar PDF</a>
       </div>
     </div>
   </div>
@@ -222,31 +225,31 @@
         <div class="pdf-icon">🃏</div>
         <h4>Cards de Limpeza</h4>
         <p>Cartões recortáveis por cômodo e frequência. Cole na área de serviço.</p>
-        <a class="dl-btn" href="pdfs/cards-de-limpeza.pdf" download onclick="markDownloaded('cards-de-limpeza')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/cards-de-limpeza.pdf" download onclick="markDownloaded('cards-de-limpeza')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="planejamento-de-limpeza">
         <div class="pdf-icon">📋</div>
         <h4>Planejamento de Limpeza</h4>
         <p>Planner semanal com tarefas por dia e ambiente.</p>
-        <a class="dl-btn" href="pdfs/planejamento-de-limpeza.pdf" download onclick="markDownloaded('planejamento-de-limpeza')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/planejamento-de-limpeza.pdf" download onclick="markDownloaded('planejamento-de-limpeza')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="limpeza-completo">
         <div class="pdf-icon">✨</div>
         <h4>Limpeza Completa</h4>
         <p>Guia com todas as tarefas: diárias, semanais, mensais e sazonais.</p>
-        <a class="dl-btn" href="pdfs/limpeza-completo.pdf" download onclick="markDownloaded('limpeza-completo')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/limpeza-completo.pdf" download onclick="markDownloaded('limpeza-completo')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="organizacao-por-comodos">
         <div class="pdf-icon">🏠</div>
         <h4>Organização por Cômodos</h4>
         <p>O que manter, descartar e reorganizar em cada ambiente.</p>
-        <a class="dl-btn" href="pdfs/organizacao-por-comodos.pdf" download onclick="markDownloaded('organizacao-por-comodos')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/organizacao-por-comodos.pdf" download onclick="markDownloaded('organizacao-por-comodos')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="roteiro-salva-vidas">
         <div class="pdf-icon">⏱️</div>
         <h4>Roteiro 15min Salva-Vidas</h4>
         <p>Protocolo de emergência: 15 minutos para "salvar" a casa.</p>
-        <a class="dl-btn" href="pdfs/roteiro-salva-vidas.pdf" download onclick="markDownloaded('roteiro-salva-vidas')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/roteiro-salva-vidas.pdf" download onclick="markDownloaded('roteiro-salva-vidas')">⬇ Baixar PDF</a>
       </div>
     </div>
   </div>
@@ -263,31 +266,31 @@
         <div class="pdf-icon">🍽️</div>
         <h4>Cardápio de Refeições</h4>
         <p>Template semanal para todas as refeições da família.</p>
-        <a class="dl-btn" href="pdfs/cardapio-refeicoes.pdf" download onclick="markDownloaded('cardapio-refeicoes')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/cardapio-refeicoes.pdf" download onclick="markDownloaded('cardapio-refeicoes')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="refeicoes-dias-uteis">
         <div class="pdf-icon">📅</div>
         <h4>Refeições Seg a Sex</h4>
         <p>Planejador visual de dias úteis com lista de compras integrada.</p>
-        <a class="dl-btn" href="pdfs/refeicoes-dias-uteis.pdf" download onclick="markDownloaded('refeicoes-dias-uteis')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/refeicoes-dias-uteis.pdf" download onclick="markDownloaded('refeicoes-dias-uteis')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="lista-de-compras">
         <div class="pdf-icon">🛒</div>
         <h4>Lista de Compras Inteligente</h4>
         <p>Organizada por setor do supermercado com controle de orçamento.</p>
-        <a class="dl-btn" href="pdfs/lista-de-compras.pdf" download onclick="markDownloaded('lista-de-compras')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/lista-de-compras.pdf" download onclick="markDownloaded('lista-de-compras')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="controle-despensa">
         <div class="pdf-icon">📦</div>
         <h4>Controle de Despensa</h4>
         <p>Inventário com quantidade mínima, validade e indicador de reposição.</p>
-        <a class="dl-btn" href="pdfs/controle-despensa.pdf" download onclick="markDownloaded('controle-despensa')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/controle-despensa.pdf" download onclick="markDownloaded('controle-despensa')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="controle-freezer">
         <div class="pdf-icon">❄️</div>
         <h4>Controle do Freezer</h4>
         <p>Registre o que está congelado, há quanto tempo e quando usar.</p>
-        <a class="dl-btn" href="pdfs/controle-freezer.pdf" download onclick="markDownloaded('controle-freezer')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/controle-freezer.pdf" download onclick="markDownloaded('controle-freezer')">⬇ Baixar PDF</a>
       </div>
     </div>
   </div>
@@ -304,19 +307,19 @@
         <div class="pdf-icon">☀️</div>
         <h4>Agenda Diária</h4>
         <p>Planner de um dia com manhã, tarde, noite, prioridades e gratidão.</p>
-        <a class="dl-btn" href="pdfs/agenda-diaria.pdf" download onclick="markDownloaded('agenda-diaria')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/agenda-diaria.pdf" download onclick="markDownloaded('agenda-diaria')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="agenda-semanal">
         <div class="pdf-icon">📊</div>
         <h4>Agenda Semanal</h4>
         <p>Visão da semana com 7 colunas, metas e revisão semanal.</p>
-        <a class="dl-btn" href="pdfs/agenda-semanal.pdf" download onclick="markDownloaded('agenda-semanal')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/agenda-semanal.pdf" download onclick="markDownloaded('agenda-semanal')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="agenda-mensal">
         <div class="pdf-icon">📆</div>
         <h4>Agenda Mensal</h4>
         <p>Calendário, rastreador de hábitos, metas e revisão do mês.</p>
-        <a class="dl-btn" href="pdfs/agenda-mensal.pdf" download onclick="markDownloaded('agenda-mensal')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/agenda-mensal.pdf" download onclick="markDownloaded('agenda-mensal')">⬇ Baixar PDF</a>
       </div>
     </div>
   </div>
@@ -333,13 +336,13 @@
         <div class="pdf-icon">🔥</div>
         <h4>Desafio dos 30 Dias</h4>
         <p>Uma tarefa por dia durante 30 dias. Transforme sua casa e seus hábitos.</p>
-        <a class="dl-btn" href="pdfs/desafio-30-dias.pdf" download onclick="markDownloaded('desafio-30-dias')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/desafio-30-dias.pdf" download onclick="markDownloaded('desafio-30-dias')">⬇ Baixar PDF</a>
       </div>
       <div class="pdf-card" data-pdf="rotina-do-pet">
         <div class="pdf-icon">🐾</div>
         <h4>Rotina do Pet</h4>
         <p>Alimentação, vacinas, banhos, passeios e controle de gastos.</p>
-        <a class="dl-btn" href="pdfs/rotina-do-pet.pdf" download onclick="markDownloaded('rotina-do-pet')">⬇ Baixar PDF</a>
+        <a class="dl-btn" href="../pdfs/rotina-do-pet.pdf" download onclick="markDownloaded('rotina-do-pet')">⬇ Baixar PDF</a>
       </div>
     </div>
   </div>
@@ -349,7 +352,8 @@
     <div class="page-hero" style="background:linear-gradient(135deg,#1A535C,#4ECDC4)">
       <span class="tag">📦 Download completo</span>
       <h1>Todos os <em>17 materiais</em></h1>
-      <p>Baixe cada material individualmente ou navegue pelas categorias no menu lateral.</p>
+      <p>Baixe todos os 17 materiais de uma vez no arquivo ZIP abaixo, ou escolha individualmente nos cards.</p>
+      <a class="dl-btn-zip" href="../pdfs/casa-em-ordem-todos-os-materiais.zip" download onclick="markAllDownloaded()">⚡ Baixar Todos os 17 PDFs (.ZIP)</a>
     </div>
     <div class="pdf-grid" id="allPdfsGrid"></div>
   </div>
@@ -387,6 +391,16 @@ function markDownloaded(id) {
     localStorage.setItem('ceo_downloaded', JSON.stringify(downloaded));
     updateUI();
   }
+}
+
+function markAllDownloaded() {
+  pdfs.forEach(p => {
+    if (!downloaded.includes(p.id)) {
+      downloaded.push(p.id);
+    }
+  });
+  localStorage.setItem('ceo_downloaded', JSON.stringify(downloaded));
+  updateUI();
 }
 
 function updateUI() {
@@ -496,7 +510,7 @@ function buildAllPdfs() {
       <div class="pdf-icon">${p.icon}</div>
       <h4>${p.name}</h4>
       <p>${p.desc}</p>
-      <a class="dl-btn" href="pdfs/${p.id}.pdf" download onclick="markDownloaded('${p.id}')">⬇ Baixar PDF</a>
+      <a class="dl-btn" href="../pdfs/${p.id}.pdf" download onclick="markDownloaded('${p.id}')">⬇ Baixar PDF</a>
     </div>`;
   });
 }
