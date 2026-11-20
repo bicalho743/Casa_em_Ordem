@@ -111,9 +111,24 @@ fbq('track', 'PageView');
       var val = params.get(key);
       if (val) sessionStorage.setItem('utm_' + key, val);
     });
+    if (params.get('fbclid') && !sessionStorage.getItem('fbclid_ts')) sessionStorage.setItem('fbclid_ts', String(Date.now()));
   })();
 
-  // Monta a URL de checkout com UTMs armazenados
+  // Dados do navegador para a API de Conversões (o aviso da Kiwify não traz):
+  // s1 = fbc, s2 = fbp, s3 = user agent. Voltam no webhook em TrackingParameters.
+  function browserTrackingParts() {
+    function cookie(name) {
+      var m = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
+      return m ? decodeURIComponent(m[1]) : '';
+    }
+    var fbc = cookie('_fbc');
+    var fbclid = sessionStorage.getItem('utm_fbclid');
+    if (!fbc && fbclid) fbc = 'fb.1.' + (sessionStorage.getItem('fbclid_ts') || Date.now()) + '.' + fbclid;
+    var vals = [['s1', fbc], ['s2', cookie('_fbp')], ['s3', navigator.userAgent]];
+    return vals.filter(function(v) { return v[1]; }).map(function(v) { return v[0] + '=' + encodeURIComponent(v[1]); });
+  }
+
+  // Monta a URL de checkout com UTMs armazenados + s1/s2/s3
   function buildCheckoutURL() {
     var base = CHECKOUT_BASE;
     var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
@@ -122,6 +137,7 @@ fbq('track', 'PageView');
       var val = sessionStorage.getItem('utm_' + key);
       if (val) parts.push(key + '=' + encodeURIComponent(val));
     });
+    parts = parts.concat(browserTrackingParts());
     return parts.length > 0 ? base + '?' + parts.join('&') : base;
   }
 
