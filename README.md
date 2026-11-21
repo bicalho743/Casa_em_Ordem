@@ -30,7 +30,7 @@ Uma página de vendas direta de alta conversão estruturada com design moderno (
   * **Bônus:** Lista de recursos extras inclusos.
   * **Preço e Checkout:** Cartão de preço destacado com redirecionamento ao checkout da Kiwify.
   * **FAQ:** Acordeões iterativos em Javascript vanilla para sanar dúvidas frequentes.
-* **Pixel do Facebook:** Rastreia os eventos padrão `PageView` e `ViewContent` (Pixel IDs: `26860613193616264` e `3613700275452878`).
+* **Pixel do Facebook:** Rastreia os eventos padrão `PageView` e `ViewContent` (Pixel ID: `3613700275452878`, "Casa em ordem").
 
 ### 2. Quiz de Diagnóstico ([casa-em-ordem-quiz/index.html](file:///c:/PROJETOS%20DIGITAIS/TAMARA/casa%20em%20ordem/casa-em-ordem-quiz/index.html))
 Um funil de vendas baseado em perguntas interativas e diagnóstico personalizado que eleva a intenção de compra.
